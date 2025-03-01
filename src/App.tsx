@@ -437,7 +437,7 @@ function App() {
           title: 'Atualizar',
           description: 'atualizar projeto em construção',
           language: 'bash',
-          code: '# adicionar todo o codigo \ngit add -A\n\n# adicionar commit \ngit commit -m "nome do commit "\n\n# enviar commit\ngit push'
+          code: '# puxar atualização do projeto\ngit pull\n\n# adicionar todo o codigo \ngit add -A\n\n# adicionar commit \ngit commit -m "nome do commit "\n\n# enviar commit\ngit push'
         }
       ]
     },
