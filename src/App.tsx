@@ -632,7 +632,7 @@ function App() {
             <Code className="mr-2 text-cyan-400" size={32} />
             CodeSnippets
           </h1>
-          <p className="mt-2 text-cyan-200 max-w-2xl">
+          <p className="mt-2 text-cyan-100 max-w-2xl">
             Uma coleção de snippets de código, exemplos e recursos para várias linguagens de programação e frameworks.
           </p>
         </div>
@@ -640,6 +640,7 @@ function App() {
 
       <div className="container mx-auto px-4 py-8">
         {/* Category Navigation with horizontal scroll */}
+        
         <div 
           className="mb-8 overflow-x-auto scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-gray-800 pb-2" 
           ref={navRef}
@@ -652,25 +653,27 @@ function App() {
             scrollbarWidth: 'thin'
           }}
         >
-          <ul className="flex space-x-2 min-w-max">
-            {categories.map((category) => (
-              <li key={category.id}>
-                <button
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`px-4 py-2 rounded-md transition-colors border whitespace-nowrap ${
-                    activeCategory === category.id
-                      ? 'bg-purple-900 text-cyan-300 border-cyan-500 shadow-[0_0_10px_rgba(0,255,255,0.2)]'
-                      : 'bg-gray-800 text-gray-300 border-gray-700 hover:bg-gray-700'
-                  }`}
-                >
-                  <span className="flex items-center">
-                    {category.icon}
-                    <span className="ml-2">{category.name}</span>
-                  </span>
-                </button>
-              </li>
-            ))}
-          </ul>
+          <pre className="p-3 bg-gray-900  overflow-x-auto border-t border-gray-700">
+            <ul className="flex space-x-2 min-w-max">
+              {categories.map((category) => (
+                <li key={category.id}>
+                  <button
+                    onClick={() => setActiveCategory(category.id)}
+                    className={`px-4 py-2 rounded-md transition-colors border whitespace-nowrap ${
+                      activeCategory === category.id
+                        ? 'bg-purple-900 text-cyan-300 border-cyan-500 shadow-[0_0_10px_rgba(0,255,255,0.2)]'
+                        : 'bg-gray-800 text-gray-300 border-gray-700 hover:bg-gray-700'
+                    }`}
+                  >
+                    <span className="flex items-center">
+                      {category.icon}
+                      <span className="ml-2">{category.name}</span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </pre>
         </div>
 
         {/* Category Header */}

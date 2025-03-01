@@ -20,7 +20,7 @@ pre code {
 
 /* Scrollbar styling */
 pre::-webkit-scrollbar {
-  height: 8px;
+  height: 16px;
 }
 
 pre::-webkit-scrollbar-track {
