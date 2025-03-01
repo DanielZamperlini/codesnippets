@@ -423,6 +423,21 @@ function App() {
           description: 'Trabalhar com branches no Git',
           language: 'bash',
           code: '# Listar branches\ngit branch\n\n# Criar nova branch\ngit branch nova-feature\n\n# Mudar para uma branch\ngit checkout nova-feature\n\n# Criar e mudar para nova branch (atalho)\ngit checkout -b nova-feature\n\n# Mesclar branch na branch atual\ngit merge outra-branch\n\n# Deletar branch\ngit branch -d branch-para-deletar'
+        },
+        {
+          id: 'git-4',
+          title: 'Deploy',
+          description: 'subir codigo no github',
+          language: 'bash',
+          code: '#  crie um novo repositório na linha de comando\n\necho "# codesnippets" >> README.md\ngit init\ngit add README.md\ngit add -A\ngit commit -m "first commit"\ngit branch -M main\ngit remote add origin https://github.com/Daniel/nomeDoProjeto\ngit push -u origin main\n\n# ou envie um repositório existente da linha de comando\n\ngit remote add origin https://github.com/Daniel/nomeDoProjeto\ngit branch -M main\ngit push -u origin main'
+
+        },
+        {
+          id: 'git-5',
+          title: 'Atualizar',
+          description: 'atualizar projeto em construção',
+          language: 'bash',
+          code: '# adicionar todo o codigo \ngit add -A\n\n# adicionar commit \ngit commit -m "nome do commit "\n\n# enviar commit\ngit push'
         }
       ]
     },
