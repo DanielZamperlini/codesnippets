@@ -541,6 +541,313 @@ export const categories: Category[] = [
         language: 'javascript',
         code: '// Eventos\n$("#botao").click(function() {\n  alert("Botão clicado!");\n});\n\n$("input").on("keyup", function() {\n  console.log("Digitando: " + $(this).val());\n});\n\n// Múltiplos eventos\n$(".item")\n  .on("mouseenter", function() {\n    $(this).addClass("hover");\n  })\n  .on("mouseleave", function() {\n    $(this).removeClass("hover");\n  });\n\n// Delegação de eventos\n$("#lista").on("click", "li", function() {\n  // Funciona mesmo para elementos adicionados dinamicamente\n  $(this).toggleClass("selecionado");\n});\n\n// Animações\n$(".painel").hide();  // Esconder elemento\n\n$("#mostrar").click(function() {\n  $(".painel").show(300);  // Mostrar com animação\n});\n\n$("#toggle").click(function() {\n  $(".painel").slideToggle(500);  // Alternar com slide\n});\n\n// Animação personalizada\n$(".caixa").animate({\n  opacity: 0.7,\n  width: "80%",\n  marginLeft: "10%"\n}, 1000, function() {\n  // Callback após a animação\n  $(this).css("border", "2px solid green");\n});'
       }
+      
+    ]
+  },
+  {
+    id: 'java',
+    name: 'Java',
+    icon: <FileCode size={24} className="text-red-500" />,
+    description: 'Linguagem de programação orientada a objetos, robusta e multiplataforma',
+    documentation: 'https://docs.oracle.com/javase/8/docs/',
+    tutorials: [
+      { title: 'Java Tutorial', url: 'https://docs.oracle.com/javase/tutorial/' },
+      { title: 'Java para Iniciantes', url: 'https://www.w3schools.com/java/' }
+    ],
+    snippets: [
+      {
+        id: 'java-1',
+        title: 'Hello World',
+        description: 'Programa básico em Java',
+        language: 'java',
+        code: 'public class Main {\n  public static void main(String[] args) {\n    System.out.println("Hello, World!");\n  }\n}'
+      },
+      {
+        id: 'java-2',
+        title: 'Classes e Objetos',
+        description: 'Definir uma classe e criar objetos',
+        language: 'java',
+        code: 'class Car {\n  String model;\n  int year;\n\n  Car(String model, int year) {\n    this.model = model;\n    this.year = year;\n  }\n\n  void display() {\n    System.out.println("Model: " + model + ", Year: " + year);\n  }\n}\n\npublic class Main {\n  public static void main(String[] args) {\n    Car myCar = new Car("Toyota", 2020);\n    myCar.display();\n  }\n}'
+      },
+      {
+        id: 'java-3',
+        title: 'Collections',
+        description: 'Usando ArrayList em Java',
+        language: 'java',
+        code: 'import java.util.ArrayList;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<String> cars = new ArrayList<String>();\n    cars.add("Volvo");\n    cars.add("BMW");\n    cars.add("Ford");\n    \n    for (String car : cars) {\n      System.out.println(car);\n    }\n  }\n}'
+      }
+    ]
+  },
+  {
+    id: 'kotlin',
+    name: 'Kotlin',
+    icon: <FileCode size={24} className="text-purple-500" />,
+    description: 'Linguagem moderna e concisa para desenvolvimento Android e multiplataforma',
+    documentation: 'https://kotlinlang.org/docs/home.html',
+    tutorials: [
+      { title: 'Kotlin Docs', url: 'https://kotlinlang.org/docs/home.html' },
+      { title: 'Kotlin para Iniciantes', url: 'https://www.w3schools.com/kotlin/' }
+    ],
+    snippets: [
+      {
+        id: 'kotlin-1',
+        title: 'Hello World',
+        description: 'Programa básico em Kotlin',
+        language: 'kotlin',
+        code: 'fun main() {\n  println("Hello, World!")\n}'
+      },
+      {
+        id: 'kotlin-2',
+        title: 'Funções e Lambdas',
+        description: 'Definir funções e expressões lambda',
+        language: 'kotlin',
+        code: 'fun sum(a: Int, b: Int): Int {\n  return a + b\n}\n\nfun main() {\n  val result = sum(5, 3)\n  println("Result: $result")\n\n  // Lambda\n  val multiply = { a: Int, b: Int -> a * b }\n  println("Multiply: ${multiply(4, 5)}")\n}'
+      },
+      {
+        id: 'kotlin-3',
+        title: 'Classes e Data Classes',
+        description: 'Definir classes e data classes',
+        language: 'kotlin',
+        code: 'class Person(val name: String, var age: Int)\n\ndata class User(val id: Int, val name: String)\n\nfun main() {\n  val person = Person("John", 30)\n  println("Name: ${person.name}, Age: ${person.age}")\n\n  val user = User(1, "Jane")\n  println(user) // toString() automático\n}'
+      }
+    ]
+  },
+  {
+    id: 'json',
+    name: 'JSON',
+    icon: <Braces size={24} className="text-yellow-500" />,
+    description: 'Formato de intercâmbio de dados leve e fácil de ler',
+    documentation: 'https://www.json.org/json-pt.html',
+    tutorials: [
+      { title: 'JSON Tutorial', url: 'https://www.w3schools.com/js/js_json_intro.asp' },
+      { title: 'JSON Schema', url: 'https://json-schema.org/learn/' }
+    ],
+    snippets: [
+      {
+        id: 'json-1',
+        title: 'Estrutura Básica',
+        description: 'Exemplo de um objeto JSON',
+        language: 'json',
+        code: '{\n  "name": "John",\n  "age": 30,\n  "isStudent": false,\n  "courses": ["Math", "Science"],\n  "address": {\n    "street": "123 Main St",\n    "city": "New York"\n  }\n}'
+      },
+      {
+        id: 'json-2',
+        title: 'Parsing em JavaScript',
+        description: 'Converter JSON para objeto JavaScript',
+        language: 'javascript',
+        code: 'const jsonString = \'{"name":"John","age":30}\';\nconst obj = JSON.parse(jsonString);\nconsole.log(obj.name); // John'
+      },
+      {
+        id: 'json-3',
+        title: 'Stringify em JavaScript',
+        description: 'Converter objeto JavaScript para JSON',
+        language: 'javascript',
+        code: 'const obj = { name: "John", age: 30 };\nconst jsonString = JSON.stringify(obj);\nconsole.log(jsonString); // {"name":"John","age":30}'
+      }
+    ]
+  },
+  {
+    id: 'apis',
+    name: 'APIs',
+    icon: <Globe size={24} className="text-blue-500" />,
+    description: 'Interfaces de Programação de Aplicativos para integração de sistemas',
+    documentation: 'https://developer.mozilla.org/pt-BR/docs/Web/API',
+    tutorials: [
+      { title: 'APIs Web', url: 'https://developer.mozilla.org/pt-BR/docs/Web/API' },
+      { title: 'REST API Tutorial', url: 'https://restfulapi.net/' }
+    ],
+    snippets: [
+      {
+        id: 'apis-1',
+        title: 'Fetch API',
+        description: 'Fazer requisições HTTP com Fetch API',
+        language: 'javascript',
+        code: 'fetch("https://api.example.com/data")\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error("Error:", error));'
+      },
+      {
+        id: 'apis-2',
+        title: 'Axios',
+        description: 'Fazer requisições HTTP com Axios',
+        language: 'javascript',
+        code: 'axios.get("https://api.example.com/data")\n  .then(response => console.log(response.data))\n  .catch(error => console.error("Error:", error));'
+      },
+      {
+        id: 'apis-3',
+        title: 'Criar API com Express',
+        description: 'Criar uma API simples com Express.js',
+        language: 'javascript',
+        code: 'const express = require("express");\nconst app = express();\n\napp.get("/api/data", (req, res) => {\n  res.json({ message: "Hello, World!" });\n});\n\napp.listen(3000, () => {\n  console.log("API running on http://localhost:3000");\n});'
+      }
+    ]
+  },
+  {
+    id: 'php',
+    name: 'PHP',
+    icon: <FileCode size={24} className="text-blue-500" />,
+    description: 'Linguagem de script do lado do servidor para desenvolvimento web',
+    documentation: 'https://www.php.net/docs.php',
+    tutorials: [
+      { title: 'PHP Manual', url: 'https://www.php.net/manual/en/' },
+      { title: 'PHP Tutorial', url: 'https://www.w3schools.com/php/' }
+    ],
+    snippets: [
+      {
+        id: 'php-1',
+        title: 'Hello World',
+        description: 'Programa básico em PHP',
+        language: 'php',
+        code: '<?php\necho "Hello, World!";\n?>'
+      },
+      {
+        id: 'php-2',
+        title: 'Formulário e POST',
+        description: 'Processar dados de formulário com PHP',
+        language: 'php',
+        code: '<?php\nif ($_SERVER["REQUEST_METHOD"] == "POST") {\n  $name = $_POST["name"];\n  echo "Hello, " . htmlspecialchars($name);\n}\n?>\n\n<form method="post">\n  Name: <input type="text" name="name">\n  <input type="submit">\n</form>'
+      },
+      {
+        id: 'php-3',
+        title: 'Conexão MySQL',
+        description: 'Conectar ao MySQL com PHP',
+        language: 'php',
+        code: '<?php\n$servername = "localhost";\n$username = "username";\n$password = "password";\n$dbname = "myDB";\n\n// Criar conexão\n$conn = new mysqli($servername, $username, $password, $dbname);\n\n// Verificar conexão\nif ($conn->connect_error) {\n  die("Connection failed: " . $conn->connect_error);\n}\n\n$sql = "SELECT id, name FROM users";\n$result = $conn->query($sql);\n\nif ($result->num_rows > 0) {\n  while($row = $result->fetch_assoc()) {\n    echo "id: " . $row["id"]. " - Name: " . $row["name"]. "<br>";\n  }\n} else {\n  echo "0 results";\n}\n$conn->close();\n?>'
+      }
+    ]
+  },
+  {
+    id: 'csharp',
+    name: 'C#',
+    icon: <FileCode size={24} className="text-purple-500" />,
+    description: 'Linguagem de programação moderna e orientada a objetos da Microsoft',
+    documentation: 'https://docs.microsoft.com/pt-br/dotnet/csharp/',
+    tutorials: [
+      { title: 'C# Docs', url: 'https://docs.microsoft.com/pt-br/dotnet/csharp/' },
+      { title: 'C# Tutorial', url: 'https://www.w3schools.com/cs/' }
+    ],
+    snippets: [
+      {
+        id: 'csharp-1',
+        title: 'Hello World',
+        description: 'Programa básico em C#',
+        language: 'csharp',
+        code: 'using System;\n\nclass Program {\n  static void Main() {\n    Console.WriteLine("Hello, World!");\n  }\n}'
+      },
+      {
+        id: 'csharp-2',
+        title: 'Classes e Objetos',
+        description: 'Definir uma classe e criar objetos',
+        language: 'csharp',
+        code: 'class Car {\n  public string model;\n  public int year;\n\n  public Car(string model, int year) {\n    this.model = model;\n    this.year = year;\n  }\n\n  public void Display() {\n    Console.WriteLine($"Model: {model}, Year: {year}");\n  }\n}\n\nclass Program {\n  static void Main() {\n    Car myCar = new Car("Toyota", 2020);\n    myCar.Display();\n  }\n}'
+      },
+      {
+        id: 'csharp-3',
+        title: 'LINQ',
+        description: 'Usando LINQ para consultas',
+        language: 'csharp',
+        code: 'using System;\nusing System.Linq;\n\nclass Program {\n  static void Main() {\n    int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };\n\n    var lowNums = from num in numbers\n                  where num < 5\n                  select num;\n\n    Console.WriteLine("Numbers < 5:");\n    foreach (var num in lowNums) {\n      Console.WriteLine(num);\n    }\n  }\n}'
+      }
+    ]
+  },
+  {
+    id: 'cpp',
+    name: 'C++',
+    icon: <FileCode size={24} className="text-blue-500" />,
+    description: 'Linguagem de programação de alto desempenho e propósito geral',
+    documentation: 'https://en.cppreference.com/w/',
+    tutorials: [
+      { title: 'C++ Docs', url: 'https://en.cppreference.com/w/' },
+      { title: 'C++ Tutorial', url: 'https://www.w3schools.com/cpp/' }
+    ],
+    snippets: [
+      {
+        id: 'cpp-1',
+        title: 'Hello World',
+        description: 'Programa básico em C++',
+        language: 'cpp',
+        code: '#include <iostream>\n\nint main() {\n  std::cout << "Hello, World!";\n  return 0;\n}'
+      },
+      {
+        id: 'cpp-2',
+        title: 'Classes e Objetos',
+        description: 'Definir uma classe e criar objetos',
+        language: 'cpp',
+        code: '#include <iostream>\n#include <string>\n\nclass Car {\npublic:\n  std::string model;\n  int year;\n\n  Car(std::string model, int year) {\n    this->model = model;\n    this->year = year;\n  }\n\n  void display() {\n    std::cout << "Model: " << model << ", Year: " << year << std::endl;\n  }\n};\n\nint main() {\n  Car myCar("Toyota", 2020);\n  myCar.display();\n  return 0;\n}'
+      },
+      {
+        id: 'cpp-3',
+        title: 'STL - Vector',
+        description: 'Usando a STL (Standard Template Library) com vector',
+        language: 'cpp',
+        code: '#include <iostream>\n#include <vector>\n\nint main() {\n  std::vector<int> numbers = {1, 2, 3, 4, 5};\n\n  for (int num : numbers) {\n    std::cout << num << std::endl;\n  }\n\n  return 0;\n}'
+      }
+    ]
+  },
+  {
+    id: 'android-studio',
+    name: 'Android Studio',
+    icon: <Terminal size={24} className="text-green-500" />,
+    description: 'Ambiente de desenvolvimento integrado (IDE) para aplicativos Android',
+    documentation: 'https://developer.android.com/studio/intro',
+    tutorials: [
+      { title: 'Android Studio Docs', url: 'https://developer.android.com/studio/intro' },
+      { title: 'Android Tutorial', url: 'https://www.tutorialspoint.com/android/index.htm' }
+    ],
+    snippets: [
+      {
+        id: 'android-1',
+        title: 'Criar Projeto',
+        description: 'Criar um novo projeto no Android Studio',
+        language: 'bash',
+        code: '# Abrir Android Studio e seguir o assistente de novo projeto'
+      },
+      {
+        id: 'android-2',
+        title: 'Activity Básica',
+        description: 'Criar uma Activity básica',
+        language: 'java',
+        code: 'package com.example.myapp;\n\nimport android.os.Bundle;\nimport androidx.appcompat.app.AppCompatActivity;\n\npublic class MainActivity extends AppCompatActivity {\n  @Override\n  protected void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    setContentView(R.layout.activity_main);\n  }\n}'
+      },
+      {
+        id: 'android-3',
+        title: 'Layout XML',
+        description: 'Criar um layout básico em XML',
+        language: 'xml',
+        code: '<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"\n  android:layout_width="match_parent"\n  android:layout_height="match_parent"\n  android:orientation="vertical">\n\n  <TextView\n    android:id="@+id/textView"\n    android:layout_width="wrap_content"\n    android:layout_height="wrap_content"\n    android:text="Hello, World!" />\n\n</LinearLayout>'
+      }
+    ]
+  },
+  {
+    id: 'virus',
+    name: 'Vírus',
+    icon: <Terminal size={24} className="text-red-500" />,
+    description: 'Códigos maliciosos e técnicas de prevenção',
+    documentation: 'https://www.kaspersky.com/resource-center/threats',
+    tutorials: [
+      { title: 'O que é um vírus?', url: 'https://www.kaspersky.com/resource-center/definitions/what-is-a-computer-virus' },
+      { title: 'Prevenção de vírus', url: 'https://www.kaspersky.com/resource-center/preemptive-safety' }
+    ],
+    snippets: [
+      {
+        id: 'virus-1',
+        title: 'Exemplo de Código Malicioso',
+        description: 'Exemplo básico de um código malicioso (apenas para estudo)',
+        language: 'python',
+        code: '# Exemplo de código malicioso (não executar)\nimport os\nos.system("rm -rf /")'
+      },
+      {
+        id: 'virus-2',
+        title: 'Proteção Básica',
+        description: 'Dicas básicas para proteger seu sistema',
+        language: 'markdown',
+        code: '1. Mantenha seu sistema operacional e softwares atualizados.\n2. Use um antivírus confiável.\n3. Não abra anexos de e-mails desconhecidos.\n4. Evite clicar em links suspeitos.\n5. Faça backups regulares dos seus dados.'
+      },
+      {
+        id: 'virus-3',
+        title: 'Detecção de Vírus',
+        description: 'Como detectar atividades suspeitas',
+        language: 'markdown',
+        code: '- Verifique processos desconhecidos no gerenciador de tarefas.\n- Monitore o uso anormal de CPU ou memória.\n- Use ferramentas de varredura de malware.\n- Fique atento a pop-ups e redirecionamentos inesperados.'
+      }
     ]
   }
 ];
