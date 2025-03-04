@@ -19,75 +19,6 @@ interface Category {
 
 export const categories: Category[] = [
   {
-    id: 'regex',
-    name: 'Regex',
-    icon: <FileCode size={24} className="text-green-500" />,
-    description: 'Expressões regulares para busca e manipulação de padrões em textos',
-    documentation: 'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions',
-    tutorials: [
-      { title: 'Regex Tutorial', url: 'https://regexr.com/' },
-      { title: 'MDN Regex Guide', url: 'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions' }
-    ],
-    snippets: [
-      {
-        id: 'regex-1',
-        title: 'Busca Simples',
-        description: 'Encontrar uma palavra em um texto',
-        language: 'regex',
-        code: '/hello/'
-      },
-      {
-        id: 'regex-2',
-        title: 'Busca com Flags',
-        description: 'Busca case-insensitive e global',
-        language: 'regex',
-        code: '/hello/gi'
-      },
-      {
-        id: 'regex-3',
-        title: 'Correspondência de Dígitos',
-        description: 'Encontrar todos os números em um texto',
-        language: 'regex',
-        code: '/\\d+/g'
-      },
-      {
-        id: 'regex-4',
-        title: 'Validação de E-mail',
-        description: 'Validar um endereço de e-mail',
-        language: 'regex',
-        code: '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/'
-      },
-      {
-        id: 'regex-5',
-        title: 'Substituição de Texto',
-        description: 'Substituir todas as ocorrências de uma palavra',
-        language: 'javascript',
-        code: 'const texto = "Hello world! Hello everyone!";\nconst novoTexto = texto.replace(/Hello/g, "Hi");\nconsole.log(novoTexto); // "Hi world! Hi everyone!"'
-      },
-      {
-        id: 'regex-6',
-        title: 'Captura de Grupos',
-        description: 'Capturar partes específicas de um texto',
-        language: 'regex',
-        code: '/(\\d{2})-(\\d{2})-(\\d{4})/'
-      },
-      {
-        id: 'regex-7',
-        title: 'Validação de Senha',
-        description: 'Validar senha com requisitos específicos',
-        language: 'regex',
-        code: '/^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/'
-      },
-      {
-        id: 'regex-8',
-        title: 'Busca de URLs',
-        description: 'Encontrar URLs em um texto',
-        language: 'regex',
-        code: '/https?:\\/\\/[^\\s]+/g'
-      }
-    ]
-  },
-  {
     id: 'react',
     name: 'React',
     icon: <Cpu size={24} className="text-cyan-400" />,
@@ -153,6 +84,75 @@ export const categories: Category[] = [
         description: 'Manipular elementos DOM diretamente com useRef',
         language: 'jsx',
         code: 'import React, { useRef } from "react";\n\nfunction TextInputWithFocusButton() {\n  const inputEl = useRef(null);\n  const onButtonClick = () => {\n    inputEl.current.focus();\n  };\n\n  return (\n    <div>\n      <input ref={inputEl} type="text" />\n      <button onClick={onButtonClick}>Focus the input</button>\n    </div>\n  );\n}'
+      }
+    ]
+  },
+  {
+    id: 'regex',
+    name: 'Regex',
+    icon: <FileCode size={24} className="text-green-500" />,
+    description: 'Expressões regulares para busca e manipulação de padrões em textos',
+    documentation: 'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions',
+    tutorials: [
+      { title: 'Regex Tutorial', url: 'https://regexr.com/' },
+      { title: 'MDN Regex Guide', url: 'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions' }
+    ],
+    snippets: [
+      {
+        id: 'regex-1',
+        title: 'Busca Simples',
+        description: 'Encontrar uma palavra em um texto',
+        language: 'regex',
+        code: '/hello/'
+      },
+      {
+        id: 'regex-2',
+        title: 'Busca com Flags',
+        description: 'Busca case-insensitive e global',
+        language: 'regex',
+        code: '/hello/gi'
+      },
+      {
+        id: 'regex-3',
+        title: 'Correspondência de Dígitos',
+        description: 'Encontrar todos os números em um texto',
+        language: 'regex',
+        code: '/\\d+/g'
+      },
+      {
+        id: 'regex-4',
+        title: 'Validação de E-mail',
+        description: 'Validar um endereço de e-mail',
+        language: 'regex',
+        code: '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/'
+      },
+      {
+        id: 'regex-5',
+        title: 'Substituição de Texto',
+        description: 'Substituir todas as ocorrências de uma palavra',
+        language: 'javascript',
+        code: 'const texto = "Hello world! Hello everyone!";\nconst novoTexto = texto.replace(/Hello/g, "Hi");\nconsole.log(novoTexto); // "Hi world! Hi everyone!"'
+      },
+      {
+        id: 'regex-6',
+        title: 'Captura de Grupos',
+        description: 'Capturar partes específicas de um texto',
+        language: 'regex',
+        code: '/(\\d{2})-(\\d{2})-(\\d{4})/'
+      },
+      {
+        id: 'regex-7',
+        title: 'Validação de Senha',
+        description: 'Validar senha com requisitos específicos',
+        language: 'regex',
+        code: '/^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/'
+      },
+      {
+        id: 'regex-8',
+        title: 'Busca de URLs',
+        description: 'Encontrar URLs em um texto',
+        language: 'regex',
+        code: '/https?:\\/\\/[^\\s]+/g'
       }
     ]
   },
