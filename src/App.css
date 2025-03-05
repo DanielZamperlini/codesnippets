@@ -36,36 +36,64 @@ pre::-webkit-scrollbar-thumb {
 pre::-webkit-scrollbar-thumb:hover {
   background: rgba(128, 0, 255, 0.5);
 }
-
 /* Custom scrollbar for category navigation */
 .scrollbar-thin::-webkit-scrollbar {
-  height: 6px;
+  height: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 255, 0.05),
+    rgba(138, 0, 252, 0.05)
+  );
+  border-radius: 6px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {
-  background: rgba(0, 255, 255, 0.05);
-  border-radius: 4px;
+  background: rgba(15, 17, 24, 0.95);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  border-radius: 6px;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.05);
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(128, 0, 255, 0.3);
-  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 255, 0.3),
+    rgba(138, 0, 252, 0.3)
+  );
+  border-radius: 6px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: rgba(128, 0, 255, 0.5);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 255, 0.4),
+    rgba(138, 0, 252, 0.4)
+  );
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
 }
 
 /* Animation for copy button */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes glowPulse {
-  0% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.3); }
-  50% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); }
-  100% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.3); }
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+  }
 }
 
 button svg {
@@ -86,6 +114,16 @@ button svg {
   animation: glowPulse 2s infinite;
 }
 
+/* Category navigation container */
+.category-nav-container {
+  background: rgba(15, 17, 24, 0.95);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
 /* Touch-friendly scrolling for mobile */
 @media (max-width: 768px) {
   .scrollbar-thin {
@@ -93,7 +131,7 @@ button svg {
     scroll-behavior: smooth;
     scrollbar-width: none; /* Firefox */
   }
-  
+
   .scrollbar-thin::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome/Safari/Opera */
   }
