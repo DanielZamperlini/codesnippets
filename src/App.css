@@ -20,7 +20,7 @@ pre code {
 
 /* Scrollbar styling */
 pre::-webkit-scrollbar {
-  height: 16px;
+  height: 20px;
 }
 
 pre::-webkit-scrollbar-track {
@@ -131,8 +131,11 @@ button svg {
     scroll-behavior: smooth;
     scrollbar-width: none; /* Firefox */
   }
+<<<<<<< HEAD
 
   .scrollbar-thin::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome/Safari/Opera */
   }
+=======
+>>>>>>> 0728a52f8fc0af87844b3570be59f370ea2ecc05
 }
