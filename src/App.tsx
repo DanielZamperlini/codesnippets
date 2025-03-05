@@ -1,5 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Copy, Check, Code, BookOpen, ExternalLink, Menu, X } from 'lucide-react';
+import {
+  Copy,
+  Check,
+  Code,
+  BookOpen,
+  ExternalLink,
+  Menu,
+  X,
+} from 'lucide-react';
 import { categories } from './components/categoria.tsx';
 import './App.css';
 
@@ -16,16 +24,18 @@ function App() {
   useEffect(() => {
     const scrollToCategory = () => {
       const container = navRef.current;
-      const activeButton = container?.querySelector(`[data-category="${activeCategory}"]`);
-      
+      const activeButton = container?.querySelector(
+        `[data-category="${activeCategory}"]`,
+      );
+
       if (container && activeButton) {
         const containerRect = container.getBoundingClientRect();
         const buttonRect = activeButton.getBoundingClientRect();
         const scrollOffset = buttonRect.left - containerRect.left;
-        
+
         container.scrollTo({
           left: container.scrollLeft + scrollOffset - 24, // 24px padding
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       }
     };
@@ -108,7 +118,8 @@ function App() {
   };
 
   // Get the active category
-  const currentCategory = categories.find(cat => cat.id === activeCategory) || categories[0];
+  const currentCategory =
+    categories.find((cat) => cat.id === activeCategory) || categories[0];
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
@@ -129,7 +140,8 @@ function App() {
             </button>
           </div>
           <p className="mt-2 text-cyan-100 max-w-2xl">
-            Uma coleção de snippets de código, exemplos e recursos para várias linguagens de programação e frameworks.
+            Uma coleção de snippets de código, exemplos e recursos para várias
+            linguagens de programação e frameworks.
           </p>
         </div>
       </header>
@@ -177,18 +189,18 @@ function App() {
       <div className="container mx-auto px-4 py-4">
         {/* Category Navigation with horizontal scroll */}
         <div className="category-nav-container p-4">
-  <div 
-    className="overflow-x-auto scrollbar-thin" 
-    ref={navRef}
-    onMouseDown={handleMouseDown}
-    onTouchStart={handleTouchStart}
-    onMouseLeave={handleMouseUpOrLeave}
-    style={{ 
-      cursor: isDragging ? 'grabbing' : 'grab',
-      WebkitOverflowScrolling: 'touch',
-    }}
-  >
-    <ul className="flex space-x-2 min-w-max px-6 py-4">
+          <div
+            className="overflow-x-auto scrollbar-thin"
+            ref={navRef}
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
+            onMouseLeave={handleMouseUpOrLeave}
+            style={{
+              cursor: isDragging ? 'grabbing' : 'grab',
+              WebkitOverflowScrolling: 'touch',
+            }}
+          >
+            <ul className="flex space-x-2 min-w-max px-6 py-4">
               {categories.map((category) => (
                 <li key={category.id}>
                   <button
@@ -219,7 +231,9 @@ function App() {
                 {currentCategory.icon}
                 <span className="ml-2">{currentCategory.name}</span>
               </h2>
-              <p className="mt-2 text-gray-300">{currentCategory.description}</p>
+              <p className="mt-2 text-gray-300">
+                {currentCategory.description}
+              </p>
             </div>
             <div className="flex flex-col space-y-2">
               <a
@@ -237,7 +251,9 @@ function App() {
 
           {/* Tutorials */}
           <div className="mt-4">
-            <h3 className="font-semibold text-purple-300">Recursos de Aprendizagem:</h3>
+            <h3 className="font-semibold text-purple-300">
+              Recursos de Aprendizagem:
+            </h3>
             <div className="mt-2 flex flex-wrap gap-2">
               {currentCategory.tutorials.map((tutorial, index) => (
                 <a
@@ -258,9 +274,14 @@ function App() {
         {/* Code Snippets */}
         <div className="space-y-6">
           {currentCategory.snippets.map((snippet) => (
-            <div key={snippet.id} className="bg-gray-800 rounded-lg shadow-[0_0_10px_rgba(0,128,255,0.15)] overflow-hidden border border-blue-900">
+            <div
+              key={snippet.id}
+              className="bg-gray-800 rounded-lg shadow-[0_0_10px_rgba(0,128,255,0.15)] overflow-hidden border border-blue-900"
+            >
               <div className="p-4 border-b border-gray-700">
-                <h3 className="text-xl font-semibold text-cyan-300">{snippet.title}</h3>
+                <h3 className="text-xl font-semibold text-cyan-300">
+                  {snippet.title}
+                </h3>
                 <p className="mt-1 text-gray-300">{snippet.description}</p>
               </div>
               <div className="relative">
@@ -270,7 +291,11 @@ function App() {
                     className="p-2 bg-gray-900 bg-opacity-70 rounded text-cyan-400 hover:bg-opacity-90 transition-all border border-cyan-800"
                     aria-label="Copiar código"
                   >
-                    {copiedId === snippet.id ? <Check size={18} /> : <Copy size={18} />}
+                    {copiedId === snippet.id ? (
+                      <Check size={18} />
+                    ) : (
+                      <Copy size={18} />
+                    )}
                   </button>
                 </div>
                 <pre className="p-4 bg-gray-900 text-cyan-100 overflow-x-auto border-t border-gray-700">
@@ -291,10 +316,14 @@ function App() {
                 <Code className="mr-2 text-cyan-400" size={20} />
                 CodeSnippets
               </h2>
-              <p className="text-gray-400 mt-1">Uma coleção de snippets de código e recursos úteis</p>
+              <p className="text-gray-400 mt-1">
+                Uma coleção de snippets de código e recursos úteis
+              </p>
             </div>
             <div>
-              <p className="text-gray-400">&copy; 2025 CodeSnippets. Todos os direitos reservados.</p>
+              <p className="text-gray-400">
+                &copy; 2025 CodeSnippets. Todos os direitos reservados.
+              </p>
             </div>
           </div>
         </div>

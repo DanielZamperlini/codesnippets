@@ -144,16 +144,3 @@ button svg {
   padding: 1rem 0;
   margin-bottom: 2rem;
 }
-
-/* Touch-friendly scrolling for mobile */
-@media (max-width: 768px) {
-  .scrollbar-thin {
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-  }
-
-  .scrollbar-thin::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome/Safari/Opera */
-  }
-}
