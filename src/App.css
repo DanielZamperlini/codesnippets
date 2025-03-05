@@ -20,7 +20,7 @@ pre code {
 
 /* Scrollbar styling */
 pre::-webkit-scrollbar {
-  height: 20px;
+  height: 16px;
 }
 
 pre::-webkit-scrollbar-track {
@@ -35,6 +35,27 @@ pre::-webkit-scrollbar-thumb {
 
 pre::-webkit-scrollbar-thumb:hover {
   background: rgba(128, 0, 255, 0.5);
+}
+/* Personalização do scroll vertical global */
+html::-webkit-scrollbar {
+  width: 18px;
+  background-color: #111827; /* Cor do fundo do track */
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #374151; /* Cor do thumb (parte móvel) */
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #4b5563; /* Cor do thumb ao passar o mouse */
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #1f2937; /* Cor do track (trilha) */
+  border-left: 1px solid #374151;
 }
 /* Custom scrollbar for category navigation */
 .scrollbar-thin::-webkit-scrollbar {
@@ -131,11 +152,8 @@ button svg {
     scroll-behavior: smooth;
     scrollbar-width: none; /* Firefox */
   }
-<<<<<<< HEAD
 
   .scrollbar-thin::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome/Safari/Opera */
   }
-=======
->>>>>>> 0728a52f8fc0af87844b3570be59f370ea2ecc05
 }
