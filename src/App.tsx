@@ -1,5 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Copy, Check, Code, BookOpen, ExternalLink, Menu, X, Search, Sun, Moon } from 'lucide-react';
+import {
+  Copy,
+  Check,
+  Code,
+  BookOpen,
+  ExternalLink,
+  Menu,
+  X,
+  Search,
+  Sun,
+  Moon,
+} from 'lucide-react';
 import { categories } from './components/categoria.tsx';
 import './App.css';
 
@@ -28,16 +39,18 @@ function App() {
   useEffect(() => {
     const scrollToCategory = () => {
       const container = navRef.current;
-      const activeButton = container?.querySelector(`[data-category="${activeCategory}"]`);
-      
+      const activeButton = container?.querySelector(
+        `[data-category="${activeCategory}"]`,
+      );
+
       if (container && activeButton) {
         const containerRect = container.getBoundingClientRect();
         const buttonRect = activeButton.getBoundingClientRect();
         const scrollOffset = buttonRect.left - containerRect.left;
-        
+
         container.scrollTo({
           left: container.scrollLeft + scrollOffset - 24,
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       }
     };
@@ -122,10 +135,11 @@ function App() {
   };
 
   // Get the active category
-  const currentCategory = categories.find(cat => cat.id === activeCategory) || categories[0];
+  const currentCategory =
+    categories.find((cat) => cat.id === activeCategory) || categories[0];
 
   // Filter snippets based on search query
-  const filteredSnippets = currentCategory.snippets.filter(snippet => {
+  const filteredSnippets = currentCategory.snippets.filter((snippet) => {
     const searchLower = searchQuery.toLowerCase();
     return (
       snippet.title.toLowerCase().includes(searchLower) ||
@@ -134,19 +148,23 @@ function App() {
   });
 
   const toggleTheme = () => {
-    setIsDarkTheme(prev => !prev);
+    setIsDarkTheme((prev) => !prev);
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDarkTheme ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'
-    }`}>
+    <div
+      className={`min-h-screen transition-colors duration-300 ${
+        isDarkTheme ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'
+      }`}
+    >
       {/* Header */}
-      <header className={`transition-colors duration-300 ${
-        isDarkTheme 
-          ? 'bg-gradient-to-r from-purple-900 via-blue-800 to-cyan-900 shadow-[0_0_15px_rgba(0,255,255,0.3)]'
-          : 'bg-gradient-to-r from-purple-100 via-blue-100 to-cyan-100 shadow-lg'
-      } py-8 px-4 relative`}>
+      <header
+        className={`transition-colors duration-300 ${
+          isDarkTheme
+            ? 'bg-gradient-to-r from-purple-900 via-blue-800 to-cyan-900 shadow-[0_0_15px_rgba(0,255,255,0.3)]'
+            : 'bg-gradient-to-r from-purple-100 via-blue-100 to-cyan-100 shadow-lg'
+        } py-8 px-4 relative`}
+      >
         <div className="container mx-auto">
           <div className="flex flex-row gap-4 justify-between items-center">
             <h1 className="text-2xl md:text-4xl font-bold flex items-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
@@ -154,7 +172,6 @@ function App() {
               CodeSnippets
             </h1>
             <div className="flex items-center justify-end gap-4 w-full md:w-auto">
-              
               <button
                 onClick={toggleTheme}
                 className={`p-2 rounded-lg transition-all duration-300 ${
@@ -168,13 +185,17 @@ function App() {
                   <Sun
                     size={24}
                     className={`absolute inset-0 transform transition-transform duration-300 ${
-                      isDarkTheme ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
+                      isDarkTheme
+                        ? 'rotate-90 opacity-0'
+                        : 'rotate-0 opacity-100'
                     }`}
                   />
                   <Moon
                     size={24}
                     className={`absolute inset-0 transform transition-transform duration-300 ${
-                      isDarkTheme ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
+                      isDarkTheme
+                        ? 'rotate-0 opacity-100'
+                        : '-rotate-90 opacity-0'
                     }`}
                   />
                 </div>
@@ -192,8 +213,13 @@ function App() {
               </button>
             </div>
           </div>
-          <p className={`mt-4 max-w-2xl ${isDarkTheme ? 'text-cyan-100' : 'text-gray-600'}`}>
-            Uma coleção de snippets de código, exemplos e recursos para várias linguagens de programação e frameworks.
+          <p
+            className={`mt-4 max-w-2xl ${
+              isDarkTheme ? 'text-cyan-100' : 'text-gray-600'
+            }`}
+          >
+            Uma coleção de snippets de código, exemplos e recursos para várias
+            linguagens de programação e frameworks.
           </p>
         </div>
       </header>
@@ -209,12 +235,18 @@ function App() {
                 : 'bg-white border-purple-200'
             }`}
           >
-            <div className={`p-4 border-b flex justify-between items-center ${
-              isDarkTheme ? 'border-gray-800' : 'border-gray-200'
-            }`}>
-              <h2 className={`text-xl font-bold ${
-                isDarkTheme ? 'text-cyan-400' : 'text-purple-600'
-              }`}>Categorias</h2>
+            <div
+              className={`p-4 border-b flex justify-between items-center ${
+                isDarkTheme ? 'border-gray-800' : 'border-gray-200'
+              }`}
+            >
+              <h2
+                className={`text-xl font-bold ${
+                  isDarkTheme ? 'text-cyan-400' : 'text-purple-600'
+                }`}
+              >
+                Categorias
+              </h2>
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className={`p-2 rounded-lg transition-colors ${
@@ -241,8 +273,8 @@ function App() {
                         ? 'bg-purple-900 text-cyan-300 shadow-[0_0_10px_rgba(0,255,255,0.2)]'
                         : 'bg-purple-100 text-purple-700 shadow-md'
                       : isDarkTheme
-                        ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                        : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                      ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                      : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                   }`}
                 >
                   {category.icon}
@@ -256,21 +288,23 @@ function App() {
 
       <div className="container mx-auto px-4 py-8">
         {/* Category Navigation with horizontal scroll */}
-        <div className={`category-nav-container ${
-          isDarkTheme ? 'border-cyan-800' : 'border-purple-200 bg-white'
-        }`}>
-  <div 
-    className="overflow-x-auto ml-2 scrollbar-thin" 
-    ref={navRef}
-    onMouseDown={handleMouseDown}
-    onTouchStart={handleTouchStart}
-    onMouseLeave={handleMouseUpOrLeave}
-    style={{ 
-      cursor: isDragging ? 'grabbing' : 'grab',
-      WebkitOverflowScrolling: 'touch',
-    }}
-  >
-    <ul className="flex space-x-2 min-w-max px-6 py-4">
+        <div
+          className={`category-nav-container ${
+            isDarkTheme ? 'border-cyan-800' : 'border-purple-200 bg-white'
+          }`}
+        >
+          <div
+            className="overflow-x-auto mx-2 scrollbar-thin"
+            ref={navRef}
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
+            onMouseLeave={handleMouseUpOrLeave}
+            style={{
+              cursor: isDragging ? 'grabbing' : 'grab',
+              WebkitOverflowScrolling: 'touch',
+            }}
+          >
+            <ul className="flex space-x-2 min-w-max px-6 py-4">
               {categories.map((category) => (
                 <li key={category.id}>
                   <button
@@ -282,8 +316,8 @@ function App() {
                           ? 'bg-purple-900 text-cyan-300 border-cyan-500 shadow-[0_0_10px_rgba(0,255,255,0.2)]'
                           : 'bg-purple-100 text-purple-700 border-purple-300 shadow-md'
                         : isDarkTheme
-                          ? 'bg-gray-800 text-gray-300 border-gray-700 hover:bg-gray-700'
-                          : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100'
+                        ? 'bg-gray-800 text-gray-300 border-gray-700 hover:bg-gray-700'
+                        : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100'
                     }`}
                   >
                     <span className="flex items-center">
@@ -298,20 +332,28 @@ function App() {
         </div>
 
         {/* Category Header */}
-        <div className={`rounded-lg p-6 mb-8 border transition-colors duration-300 ${
-          isDarkTheme
-            ? 'bg-gray-800 shadow-[0_0_10px_rgba(128,0,255,0.2)] border-purple-900'
-            : 'bg-white shadow-lg border-purple-200'
-        }`}>
+        <div
+          className={`rounded-lg p-6 mb-8 border transition-colors duration-300 ${
+            isDarkTheme
+              ? 'bg-gray-800 shadow-[0_0_10px_rgba(128,0,255,0.2)] border-purple-900'
+              : 'bg-white shadow-lg border-purple-200'
+          }`}
+        >
           <div className="flex items-start justify-between">
             <div>
-              <h2 className={`text-2xl font-bold flex items-center ${
-                isDarkTheme ? 'text-cyan-300' : 'text-purple-600'
-              }`}>
+              <h2
+                className={`text-2xl font-bold flex items-center ${
+                  isDarkTheme ? 'text-cyan-300' : 'text-purple-600'
+                }`}
+              >
                 {currentCategory.icon}
                 <span className="ml-2">{currentCategory.name}</span>
               </h2>
-              <p className={`mt-2 ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p
+                className={`mt-2 ${
+                  isDarkTheme ? 'text-gray-300' : 'text-gray-600'
+                }`}
+              >
                 {currentCategory.description}
               </p>
             </div>
@@ -321,7 +363,9 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center hover:underline ${
-                  isDarkTheme ? 'text-cyan-400 hover:text-cyan-300' : 'text-purple-600 hover:text-purple-500'
+                  isDarkTheme
+                    ? 'text-cyan-400 hover:text-cyan-300'
+                    : 'text-purple-600 hover:text-purple-500'
                 }`}
               >
                 <BookOpen size={18} className="mr-1" />
@@ -333,9 +377,13 @@ function App() {
 
           {/* Tutorials */}
           <div className="mt-4">
-            <h3 className={`font-semibold ${
-              isDarkTheme ? 'text-purple-300' : 'text-purple-600'
-            }`}>Recursos de Aprendizagem:</h3>
+            <h3
+              className={`font-semibold ${
+                isDarkTheme ? 'text-purple-300' : 'text-purple-600'
+              }`}
+            >
+              Recursos de Aprendizagem:
+            </h3>
             <div className="mt-2 flex flex-wrap gap-2">
               {currentCategory.tutorials.map((tutorial, index) => (
                 <a
@@ -357,40 +405,57 @@ function App() {
           </div>
         </div>
         <div className="relative flex-1 mb-5 md:w-64">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className={`h-5 w-5 ${isDarkTheme ? 'text-gray-400' : 'text-gray-500'}`} />
-                </div>
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Buscar snippets..."
-                  className={`w-full pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 transition-all duration-200 ${
-                    isDarkTheme
-                      ? 'bg-gray-800 bg-opacity-50 border-cyan-800 focus:ring-cyan-600 text-gray-100 placeholder-gray-400'
-                      : 'bg-white border-purple-200 focus:ring-purple-400 text-gray-900 placeholder-gray-500'
-                  } border`}
-                />
-              </div>
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Search
+              className={`h-5 w-5 ${
+                isDarkTheme ? 'text-gray-400' : 'text-gray-500'
+              }`}
+            />
+          </div>
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Buscar snippets..."
+            className={`w-full pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 transition-all duration-200 ${
+              isDarkTheme
+                ? 'bg-gray-800 bg-opacity-50 border-cyan-800 focus:ring-cyan-600 text-gray-100 placeholder-gray-400'
+                : 'bg-white border-purple-200 focus:ring-purple-400 text-gray-900 placeholder-gray-500'
+            } border`}
+          />
+        </div>
 
         {/* Code Snippets */}
         <div className="space-y-6">
           {filteredSnippets.length > 0 ? (
             filteredSnippets.map((snippet) => (
-              <div key={snippet.id} className={`rounded-lg overflow-hidden border transition-colors duration-300 ${
-                isDarkTheme
-                  ? 'bg-gray-800 shadow-[0_0_10px_rgba(0,128,255,0.15)] border-blue-900'
-                  : 'bg-white shadow-lg border-purple-200'
-              }`}>
-                <div className={`p-4 border-b ${
-                  isDarkTheme ? 'border-gray-700' : 'border-gray-200'
-                }`}>
-                  <h3 className={`text-xl font-semibold ${
-                    isDarkTheme ? 'text-cyan-300' : 'text-purple-600'
-                  }`}>{snippet.title}</h3>
-                  <p className={`mt-1 ${
-                    isDarkTheme ? 'text-gray-300' : 'text-gray-600'
-                  }`}>{snippet.description}</p>
+              <div
+                key={snippet.id}
+                className={`rounded-lg overflow-hidden border transition-colors duration-300 ${
+                  isDarkTheme
+                    ? 'bg-gray-800 shadow-[0_0_10px_rgba(0,128,255,0.15)] border-blue-900'
+                    : 'bg-white shadow-lg border-purple-300'
+                }`}
+              >
+                <div
+                  className={`p-4 border-b ${
+                    isDarkTheme ? 'border-gray-700' : 'border-gray-200'
+                  }`}
+                >
+                  <h3
+                    className={`text-xl font-semibold ${
+                      isDarkTheme ? 'text-cyan-300' : 'text-purple-600'
+                    }`}
+                  >
+                    {snippet.title}
+                  </h3>
+                  <p
+                    className={`mt-1 ${
+                      isDarkTheme ? 'text-gray-300' : 'black'
+                    }`}
+                  >
+                    {snippet.description}
+                  </p>
                 </div>
                 <div className="relative">
                   <div className="absolute top-2 right-2 z-10">
@@ -403,14 +468,20 @@ function App() {
                       }`}
                       aria-label="Copiar código"
                     >
-                      {copiedId === snippet.id ? <Check size={18} /> : <Copy size={18} />}
+                      {copiedId === snippet.id ? (
+                        <Check size={18} />
+                      ) : (
+                        <Copy size={18} />
+                      )}
                     </button>
                   </div>
-                  <pre className={`p-4 pt-10 overflow-x-auto border-t ${
-                    isDarkTheme
-                      ? 'bg-gray-900 text-cyan-100 border-gray-700'
-                      : 'bg-gray-50 text-gray-800 border-gray-200'
-                  }`}>
+                  <pre
+                    className={`p-4 pt-10 overflow-x-auto border-t ${
+                      isDarkTheme
+                        ? 'bg-gray-900 text-cyan-100 border-gray-700'
+                        : 'bg-purple-50 text-gray-950 border-gray-200'
+                    }`}
+                  >
                     <code>{snippet.code}</code>
                   </pre>
                 </div>
@@ -427,11 +498,13 @@ function App() {
       </div>
 
       {/* Footer */}
-      <footer className={`py-8 px-4 mt-12 border-t transition-colors duration-300 ${
-        isDarkTheme
-          ? 'bg-gray-900 text-gray-300 border-purple-900'
-          : 'bg-gray-50 text-gray-600 border-purple-200'
-      }`}>
+      <footer
+        className={`py-8 px-4 mt-12 border-t transition-colors duration-300 ${
+          isDarkTheme
+            ? 'bg-gray-900 text-gray-300 border-purple-900'
+            : 'bg-gray-50 text-gray-600 border-purple-200'
+        }`}
+      >
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
