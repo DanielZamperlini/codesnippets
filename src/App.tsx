@@ -57,6 +57,7 @@ function App() {
     setScrollLeft(navRef.current?.scrollLeft || 0);
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMouseMove = (e: MouseEvent) => {
     if (!isDragging) return;
     e.preventDefault();
@@ -67,6 +68,7 @@ function App() {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleTouchMove = (e: TouchEvent) => {
     if (!isDragging) return;
     const x = e.touches[0].pageX - (navRef.current?.offsetLeft || 0);
@@ -146,12 +148,12 @@ function App() {
           : 'bg-gradient-to-r from-purple-100 via-blue-100 to-cyan-100 shadow-lg'
       } py-8 px-4 relative`}>
         <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
-            <h1 className="text-3xl md:text-4xl font-bold flex items-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+          <div className="flex flex-row gap-4 justify-between items-center">
+            <h1 className="text-2xl md:text-4xl font-bold flex items-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
               <Code className="mr-2 text-cyan-400" size={32} />
               CodeSnippets
             </h1>
-            <div className="flex items-center gap-4 w-full md:w-auto">
+            <div className="flex items-center justify-end gap-4 w-full md:w-auto">
               
               <button
                 onClick={toggleTheme}
@@ -233,7 +235,7 @@ function App() {
                     setActiveCategory(category.id);
                     setIsMenuOpen(false);
                   }}
-                  className={`w-full p-4 rounded-lg flex items-center transition-all ${
+                  className={`w-full p-4 rounded-lg flex items-center transition-all  ${
                     activeCategory === category.id
                       ? isDarkTheme
                         ? 'bg-purple-900 text-cyan-300 shadow-[0_0_10px_rgba(0,255,255,0.2)]'
@@ -258,7 +260,7 @@ function App() {
           isDarkTheme ? 'border-cyan-800' : 'border-purple-200 bg-white'
         }`}>
   <div 
-    className="overflow-x-auto scrollbar-thin" 
+    className="overflow-x-auto ml-2 scrollbar-thin" 
     ref={navRef}
     onMouseDown={handleMouseDown}
     onTouchStart={handleTouchStart}
@@ -404,7 +406,7 @@ function App() {
                       {copiedId === snippet.id ? <Check size={18} /> : <Copy size={18} />}
                     </button>
                   </div>
-                  <pre className={`p-4 overflow-x-auto border-t ${
+                  <pre className={`p-4 pt-10 overflow-x-auto border-t ${
                     isDarkTheme
                       ? 'bg-gray-900 text-cyan-100 border-gray-700'
                       : 'bg-gray-50 text-gray-800 border-gray-200'
