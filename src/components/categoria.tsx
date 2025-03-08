@@ -1,4 +1,4 @@
-import { Terminal, Cpu, Layers, FileCode, Database, Globe, Palette, Box, GitBranch, Server, Package, Grid, Table, Disc, Braces } from 'lucide-react';
+import { Terminal, Cpu, Layers, FileCode, Database, Globe, Palette, Box, GitBranch, Server, Package, Grid, Table, Disc, Braces, AppWindow } from 'lucide-react';
 interface CodeSnippet {
   id: string;
   title: string;
@@ -3734,5 +3734,158 @@ SELECT * FROM usuarios WHERE nome = "João Silva";`
       }
     ]
     
+},
+{
+  id: 'windows-tips',
+  name: 'Windows Atalhos e Dicas',
+  icon: <AppWindow size={24} className="text-blue-500" />,
+  description: 'Descubra atalhos úteis e dicas para melhorar sua experiência no Windows',
+  documentation: 'https://support.microsoft.com/en-us/windows',
+  tutorials: [
+    { title: 'Atalhos de teclado do Windows', url: 'https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows' },
+    { title: 'Personalizando o Windows', url: 'https://support.microsoft.com/en-us/help/12445/windows-keyboard-shortcuts' }
+  ],
+  snippets: [
+    {
+      id: 'windows-1',
+      title: 'Atalhos Essenciais',
+      description: 'Atalhos rápidos para navegação eficiente',
+      language: 'markdown',
+      code: "## Atalhos Úteis\n- **Win + D**: Mostrar ou ocultar a área de trabalho.\n- **Win + L**: Bloquear a tela instantaneamente.\n- **Ctrl + Shift + Esc**: Abrir o Gerenciador de Tarefas rapidamente.\n- **Win + Tab**: Abrir o Visão de Tarefas para alternar entre desktops virtuais.\n- **Alt + Enter**: Abrir as propriedades do item selecionado no Explorer."
+    },
+    {
+      id: 'windows-2',
+      title: 'Dicas para Melhorar o Desempenho',
+      description: 'Dicas rápidas para otimizar seu computador',
+      language: 'markdown',
+      code: "1. Desative programas desnecessários na inicialização (Gerenciador de Tarefas > Inicializar).\n2. Ative o Modo de Economia de Energia para laptops (Configurações > Sistema > Energia).\n3. Limpe arquivos temporários usando o **Limpeza de Disco**.\n4. Atualize drivers regularmente, especialmente para a GPU.\n5. Configure a opção de **Desempenho Máximo** no Gerenciador de Energia."
+    },
+    {
+      id: 'windows-3',
+      title: 'Explorador de Arquivos',
+      description: 'Atalhos para o Explorador de Arquivos',
+      language: 'markdown',
+      code: "- **Ctrl + N**: Abrir uma nova janela do Explorador.\n- **Alt + Up Arrow**: Subir um nível na hierarquia de pastas.\n- **Ctrl + Shift + N**: Criar uma nova pasta rapidamente.\n- **Ctrl + W**: Fechar a janela atual do Explorador."
+    },
+    {
+      id: 'windows-4',
+      title: 'Segurança no Windows',
+      description: 'Configurações de segurança essenciais',
+      language: 'markdown',
+      code: "- Ative o Windows Defender para proteção em tempo real.\n- Use o Windows Update para aplicar as atualizações de segurança mais recentes.\n- Configure um PIN ou autenticação biométrica no Windows Hello.\n- Monitore permissões de aplicativos nas Configurações > Privacidade."
+    },
+    {
+      id: 'windows-5',
+      title: 'Personalização do Windows',
+      description: 'Dicas para personalizar o ambiente de trabalho',
+      language: 'markdown',
+      code: "- Altere o tema ou cor em Configurações > Personalização > Cores.\n- Organize ícones da área de trabalho pressionando **Ctrl** enquanto arrasta.\n- Use a barra de busca do Windows para localizar aplicativos rapidamente.\n- Habilite **Slideshow** para alterar automaticamente o papel de parede em intervalos definidos."
+    },
+  {
+    id: 'windows-6',
+    title: 'Alternar Janelas',
+    description: 'Use Alt + Tab para alternar entre janelas abertas rapidamente',
+    language: 'markdown',
+    code: "- **Alt + Tab**: Navegue entre janelas abertas.\n- **Alt + Shift + Tab**: Alterne entre janelas na ordem inversa."
+  },
+  {
+    id: 'windows-7',
+    title: 'Fixar Apps na Barra de Tarefas',
+    description: 'Fixe aplicativos na barra de tarefas para acesso rápido',
+    language: 'markdown',
+    code: "- Clique com o botão direito no ícone do aplicativo aberto.\n- Selecione **Fixar na Barra de Tarefas**."
+  },
+  {
+    id: 'windows-8',
+    title: 'Organização Automática de Janelas',
+    description: 'Organize janelas na tela com atalhos de teclado',
+    language: 'markdown',
+    code: "- **Win + Setas**: Redimensione e posicione janelas.\n- **Win + Left/Right**: Alinhe janelas à esquerda ou direita."
+  },
+  {
+    id: 'windows-9',
+    title: 'Gravação de Tela',
+    description: 'Use a barra de jogos para gravar a tela',
+    language: 'markdown',
+    code: "- Abra o **Game Bar** pressionando **Win + G**.\n- Clique no botão de gravação ou pressione **Win + Alt + R**."
+  },
+  {
+    id: 'windows-10',
+    title: 'Modo Tablet',
+    description: 'Habilite o Modo Tablet para uma experiência de toque otimizada',
+    language: 'markdown',
+    code: "- No **Centro de Ações** (Win + A), clique em **Modo Tablet**."
+  },
+  {
+    id: 'windows-11',
+    title: 'Modo de Jogo',
+    description: 'Melhore o desempenho em jogos ativando o Modo de Jogo',
+    language: 'markdown',
+    code: "- Vá para **Configurações > Jogos > Modo de Jogo**.\n- Ative a opção para priorizar recursos."
+  },
+  {
+    id: 'windows-12',
+    title: 'Alternar Entre Monitores',
+    description: 'Configure rapidamente o uso de múltiplos monitores',
+    language: 'markdown',
+    code: "- Use **Win + P** para alternar entre duplicar, estender ou exibir em apenas um monitor."
+  },
+  {
+    id: 'windows-13',
+    title: 'Zoom de Tela',
+    description: 'Amplie ou reduza áreas específicas da tela',
+    language: 'markdown',
+    code: "- Pressione **Win + +** para aumentar o zoom.\n- Use **Win + -** para reduzir o zoom."
+  },
+  {
+    id: 'windows-14',
+    title: 'Busca Avançada',
+    description: 'Encontre arquivos rapidamente com filtros no Explorador',
+    language: 'markdown',
+    code: "- Use **ext:.pdf** para encontrar arquivos PDF.\n- Experimente **data:ontem** para listar arquivos alterados ontem."
+  },
+  {
+    id: 'windows-15',
+    title: 'Desktop Virtual',
+    description: 'Crie e gerencie desktops virtuais',
+    language: 'markdown',
+    code: "- Pressione **Win + Ctrl + D** para criar um novo desktop virtual.\n- Use **Win + Ctrl + Left/Right** para navegar entre desktops."
+  },
+  {
+    id: 'windows-16',
+    title: 'Restaurar Sistema',
+    description: 'Configure pontos de restauração para reverter alterações no sistema',
+    language: 'markdown',
+    code: "- Vá para **Configurações > Sistema > Informações do Sistema**.\n- Configure e habilite **Restauração do Sistema**."
+  },
+  {
+    id: 'windows-17',
+    title: 'Modo Offline no OneDrive',
+    description: 'Acesse arquivos do OneDrive sem conexão com a internet',
+    language: 'markdown',
+    code: "- Clique com o botão direito no arquivo/pasta do OneDrive.\n- Selecione **Sempre manter neste dispositivo**."
+  },
+  {
+    id: 'windows-18',
+    title: 'Gerenciamento de Disco',
+    description: 'Otimize o armazenamento usando o Gerenciamento de Disco',
+    language: 'markdown',
+    code: "- Acesse **Win + X > Gerenciamento de Disco**.\n- Crie, exclua ou formate partições para otimizar o armazenamento."
+  },
+  {
+    id: 'windows-19',
+    title: 'Recorte Avançado de Tela',
+    description: 'Capture áreas específicas com o atalho de recorte',
+    language: 'markdown',
+    code: "- Pressione **Win + Shift + S** para abrir a ferramenta de recorte.\n- Selecione a área desejada para capturar."
+  },
+  {
+    id: 'windows-20',
+    title: 'Configuração de Energia',
+    description: 'Configure o plano de energia para equilibrar desempenho e economia',
+    language: 'markdown',
+    code: "- Acesse **Configurações > Sistema > Energia e suspensão**.\n- Ajuste o plano para **Desempenho Máximo** ou **Economia de Energia**."
+  }
+  ]
 }
 ];
