@@ -3889,177 +3889,156 @@ SELECT * FROM usuarios WHERE nome = "João Silva";`
   ],
 },
 {
-  id: 'vscode',
-  name: 'VSCode Extensions',
-  icon: <AppWindow size={24} />,
-  description: 'Extensões essenciais para melhorar sua produtividade no Visual Studio Code.',
+  id: 'vscode-extensions',
+  name: 'Extensões do VS Code',
+  icon: <FileCode size={24} className="text-blue-500" />,
+  description: 'Extensões essenciais para aumentar a produtividade no Visual Studio Code',
   documentation: 'https://code.visualstudio.com/docs/editor/extension-marketplace',
   tutorials: [
-    {
-      title: 'Guia de Extensões',
-      url: 'https://code.visualstudio.com/learn/get-started/extensions',
-    },
-    {
-      title: 'Marketplace VSCode',
-      url: 'https://marketplace.visualstudio.com/',
-    },
+    { title: 'VS Code Extensions Guide', url: 'https://code.visualstudio.com/docs/editor/extension-marketplace' },
+    { title: 'Top VS Code Extensions', url: 'https://www.sitepoint.com/vs-code-extensions/' }
   ],
   snippets: [
     {
-      id: 'prettier',
-      title: 'Prettier - Code formatter',
-      description: 'Formatador de código que suporta múltiplas linguagens e mantém um estilo consistente.',
-      code: `// 1. Instale a extensão:
-// Busque por "Prettier - Code formatter" no marketplace
-
-// 2. Configure no settings.json:
-{
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "es5"
-}`,
-      language: ''
+      id: 'vscode-1',
+      title: 'Instalar Extensões',
+      description: 'Como instalar extensões no VS Code',
+      language: 'markdown',
+      code: '1. Abra o VS Code.\n2. Clique no ícone de Extensões na barra lateral (ou pressione `Ctrl+Shift+X`).\n3. Digite o nome da extensão na barra de pesquisa.\n4. Clique em "Instalar" ao lado da extensão desejada.'
     },
     {
-      id: 'eslint',
-      title: 'ESLint',
-      description: 'Ferramenta de linting para identificar e corrigir problemas no código JavaScript/TypeScript.',
-      code: `// 1. Instale a extensão:
-// Busque por "ESLint" no marketplace
-
-// 2. Configure no settings.json:
-{
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.validate": [
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact"
-  ]
-}`,
-      language: ''
+      id: 'vscode-2',
+      title: 'Prettier - Formatador de Código',
+      description: 'Formatar código automaticamente com Prettier',
+      language: 'markdown',
+      code: '1. Instale a extensão "Prettier - Code formatter".\n2. Abra as configurações do VS Code (`Ctrl+,`).\n3. Pesquise por "Format On Save" e marque a opção.\n4. No seu projeto, crie um arquivo `.prettierrc` para configurar regras de formatação.\n5. Salve o arquivo e veja o código ser formatado automaticamente.'
     },
     {
-      id: 'gitlens',
-      title: 'GitLens',
-      description: 'Adiciona recursos avançados do Git diretamente no editor, como blame, histórico e comparações.',
-      code: `// 1. Instale a extensão:
-// Busque por "GitLens" no marketplace
-
-// 2. Recursos principais:
-// - Git blame na linha atual
-// - Histórico de alterações
-// - Comparação de branches
-// - Explorador do Git
-
-// 3. Atalhos úteis:
-// Alt+B - Toggle Git blame
-// Alt+H - Mostrar histórico do arquivo
-// Ctrl+Shift+G G - Abrir GitLens`,
-      language: ''
+      id: 'vscode-3',
+      title: 'ESLint - Linter para JavaScript',
+      description: 'Identificar e corrigir problemas no código JavaScript',
+      language: 'markdown',
+      code: '1. Instale a extensão "ESLint".\n2. No terminal, instale o ESLint no seu projeto: `npm install eslint --save-dev`.\n3. Inicialize o ESLint: `npx eslint --init`.\n4. Siga as instruções para configurar o ESLint.\n5. O VS Code destacará erros e oferecerá correções automáticas.'
     },
     {
-      id: 'material-icon',
-      title: 'Material Icon Theme',
-      description: 'Adiciona ícones bonitos e intuitivos para diferentes tipos de arquivos e pastas.',
-      code: `// 1. Instale a extensão:
-// Busque por "Material Icon Theme" no marketplace
-
-// 2. Configure no settings.json:
-{
-  "workbench.iconTheme": "material-icon-theme",
-  "material-icon-theme.activeIconPack": "react",
-  "material-icon-theme.folders.theme": "specific",
-  "material-icon-theme.folders.color": "#26a69a"
-}`,
-      language: ''
-    },
-    {
-      id: 'live-server',
+      id: 'vscode-4',
       title: 'Live Server',
-      description: 'Servidor de desenvolvimento local com recarga automática para páginas estáticas.',
-      code: `// 1. Instale a extensão:
-// Busque por "Live Server" no marketplace
-
-// 2. Como usar:
-// - Clique com botão direito no arquivo HTML
-// - Selecione "Open with Live Server"
-// - Ou use o atalho Alt+L Alt+O
-
-// 3. Configure no settings.json:
-{
-  "liveServer.settings.donotShowInfoMsg": true,
-  "liveServer.settings.port": 5500,
-  "liveServer.settings.root": "/public"
-}`,
-      language: ''
+      description: 'Servidor local com recarregamento automático',
+      language: 'markdown',
+      code: '1. Instale a extensão "Live Server".\n2. Clique com o botão direito em um arquivo HTML e selecione "Open with Live Server".\n3. Uma nova aba do navegador abrirá com o projeto rodando.\n4. Qualquer alteração no código será refletida automaticamente no navegador.'
     },
     {
-      id: 'thunder-client',
-      title: 'Thunder Client',
-      description: 'Cliente REST leve e intuitivo, alternativa ao Postman integrada ao VSCode.',
-      code: `// 1. Instale a extensão:
-// Busque por "Thunder Client" no marketplace
-
-// 2. Como usar:
-// - Clique no ícone do Thunder Client na barra lateral
-// - Crie uma nova requisição (Ctrl+N)
-// - Selecione o método HTTP
-// - Digite a URL
-// - Adicione headers/body se necessário
-// - Envie a requisição
-
-// 3. Recursos:
-// - Coleções de requisições
-// - Variáveis de ambiente
-// - Testes automatizados
-// - Importação/Exportação`,
-      language: ''
+      id: 'vscode-5',
+      title: 'GitLens',
+      description: 'Integração avançada com Git',
+      language: 'markdown',
+      code: '1. Instale a extensão "GitLens".\n2. Abra um projeto com Git inicializado.\n3. No canto inferior esquerdo, clique no ícone do GitLens para ver commits, branches e histórico.\n4. Passe o mouse sobre uma linha de código para ver quem a modificou e quando.'
     },
     {
-      id: 'color-highlight',
-      title: 'Color Highlight',
-      description: 'Destaca cores em seu código com a cor correspondente.',
-      code: `// 1. Instale a extensão:
-// Busque por "Color Highlight" no marketplace
-
-// 2. Suporta vários formatos:
-// - Hexadecimal: #RGB, #RGBA, #RRGGBB, #RRGGBBAA
-// - RGB/RGBA: rgb(0, 0, 0), rgba(0, 0, 0, 0)
-// - HSL/HSLA: hsl(0, 0%, 0%), hsla(0, 0%, 0%, 0)
-// - Palavras-chave CSS: red, blue, transparent
-
-// 3. Configure no settings.json:
-{
-  "color-highlight.markerType": "dot-before",
-  "color-highlight.markRuler": true
-}`,
-      language: ''
+      id: 'vscode-6',
+      title: 'Bracket Pair Colorizer',
+      description: 'Colorir pares de colchetes para melhorar a legibilidade',
+      language: 'markdown',
+      code: '1. Instale a extensão "Bracket Pair Colorizer".\n2. Abra um arquivo de código.\n3. Pares de colchetes, chaves e parênteses serão coloridos para facilitar a identificação.\n4. Personalize as cores nas configurações da extensão.'
     },
     {
-      id: 'path-intellisense',
+      id: 'vscode-7',
+      title: 'Auto Rename Tag',
+      description: 'Renomear automaticamente tags HTML/XML',
+      language: 'markdown',
+      code: '1. Instale a extensão "Auto Rename Tag".\n2. Ao renomear uma tag HTML/XML, a tag de fechamento será renomeada automaticamente.\n3. Experimente renomear uma tag em um arquivo HTML para ver a funcionalidade em ação.'
+    },
+    {
+      id: 'vscode-8',
+      title: 'Material Icon Theme',
+      description: 'Ícones temáticos para melhorar a organização de arquivos',
+      language: 'markdown',
+      code: '1. Instale a extensão "Material Icon Theme".\n2. Abra as configurações do VS Code (`Ctrl+,`).\n3. Pesquise por "File Icon Theme" e selecione "Material Icon Theme".\n4. Os ícones dos arquivos e pastas serão atualizados com um visual moderno.'
+    },
+    {
+      id: 'vscode-9',
+      title: 'Tailwind CSS IntelliSense',
+      description: 'Sugestões e autocompletar para classes Tailwind CSS',
+      language: 'markdown',
+      code: '1. Instale a extensão "Tailwind CSS IntelliSense".\n2. Abra um arquivo HTML ou JavaScript com classes Tailwind.\n3. Veja as sugestões automáticas de classes enquanto digita.\n4. Hover sobre uma classe para visualizar seu estilo correspondente.'
+    },
+    {
+      id: 'vscode-10',
+      title: 'Settings Sync',
+      description: 'Sincronize suas configurações, atalhos e extensões em múltiplos dispositivos',
+      language: 'markdown',
+      code: '1. Instale a extensão "Settings Sync".\n2. Pressione `Ctrl+Shift+P` e procure por "Sync: Turn On".\n3. Faça login com sua conta GitHub ou Microsoft.\n4. Escolha as configurações a sincronizar, como extensões e temas.'
+    },
+    {
+      id: 'vscode-11',
       title: 'Path Intellisense',
-      description: 'Autocompletar caminhos de arquivos em seu código.',
-      code: `// 1. Instale a extensão:
-// Busque por "Path Intellisense" no marketplace
-
-// 2. Configure no settings.json:
-{
-  "typescript.suggest.paths": true,
-  "javascript.suggest.paths": true,
-  "path-intellisense.extensionOnImport": true,
-  "path-intellisense.showHiddenFiles": true
-}
-
-// 3. Uso:
-// - Digite o caminho e pressione Ctrl+Space
-// - Suporta imports relativos e absolutos
-// - Funciona com JavaScript, TypeScript, React, Vue, etc.`,
-      language: ''
-    }
-  ],
+      description: 'Completa automaticamente caminhos de arquivos no código',
+      language: 'markdown',
+      code: '1. Instale a extensão "Path Intellisense".\n2. Comece a digitar um caminho de arquivo em seu código.\n3. Veja as sugestões automáticas de arquivos e pastas.'
+    },
+    {
+      id: 'vscode-12',
+      title: 'IntelliCode',
+      description: 'Sugestões de código baseadas em inteligência artificial',
+      language: 'markdown',
+      code: '1. Instale a extensão "Visual Studio IntelliCode".\n2. Abra um projeto e digite código normalmente.\n3. Veja as sugestões de código inteligentes baseadas em padrões populares.'
+    },
+    {
+      id: 'vscode-13',
+      title: 'Code Spell Checker',
+      description: 'Identifica erros ortográficos no código e comentários',
+      language: 'markdown',
+      code: '1. Instale a extensão "Code Spell Checker".\n2. Erros de digitação em palavras serão sublinhados.\n3. Clique com o botão direito para sugerir correções.'
+    },
+    {
+      id: 'vscode-14',
+      title: 'REST Client',
+      description: 'Teste APIs diretamente no VS Code',
+      language: 'markdown',
+      code: '1. Instale a extensão "REST Client".\n2. Crie um arquivo com extensão `.http` ou `.rest`.\n3. Escreva sua requisição HTTP (ex.: `GET https://api.example.com`).\n4. Clique no botão "Send Request" para ver a resposta.'
+    },
+    {
+      id: 'vscode-15',
+      title: 'Docker',
+      description: 'Gerencie contêineres Docker diretamente no VS Code',
+      language: 'markdown',
+      code: '1. Instale a extensão "Docker".\n2. Clique no ícone do Docker na barra lateral.\n3. Gerencie contêineres, imagens e volumes facilmente.'
+    },
+    {
+      id: 'vscode-16',
+      title: 'Tabnine',
+      description: 'Autocomplete de código com IA',
+      language: 'markdown',
+      code: '1. Instale a extensão "Tabnine".\n2. Digite normalmente em qualquer linguagem.\n3. Veja sugestões avançadas de código baseadas em IA.'
+    },
+    {
+      id: 'vscode-17',
+      title: 'HTML CSS Support',
+      description: 'Habilita suporte avançado para arquivos HTML e CSS',
+      language: 'markdown',
+      code: '1. Instale a extensão "HTML CSS Support".\n2. Em um arquivo HTML, digite classes ou IDs usados no CSS e veja as sugestões.\n3. Navegue facilmente entre HTML e CSS.'
+    },
+    {
+      id: 'vscode-18',
+      title: 'Vim',
+      description: 'Permite usar comandos do Vim no VS Code',
+      language: 'markdown',
+      code: '1. Instale a extensão "Vim".\n2. Use o modo de edição do Vim (`i`) e de navegação (`Esc`).\n3. Personalize os comandos nas configurações da extensão.'
+    },
+    {
+      id: 'vscode-19',
+      title: 'Peacock',
+      description: 'Altere a cor do editor para diferenciar projetos',
+      language: 'markdown',
+      code: '1. Instale a extensão "Peacock".\n2. Pressione `Ctrl+Shift+P` e procure por "Peacock: Change to a Favorite Color".\n3. Escolha uma cor para o editor.'
+    },
+    {
+      id: 'vscode-20',
+      title: 'Todo Tree',
+      description: 'Organize e visualize tarefas pendentes no código',
+      language: 'markdown',
+      code: '1. Instale a extensão "Todo Tree".\n2. Adicione comentários como `// TODO` ou `// FIXME` no código.\n3. Visualize as tarefas pendentes no painel lateral.'
+    },
+  ]
 }
 ];
