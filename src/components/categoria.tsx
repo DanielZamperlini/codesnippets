@@ -3884,8 +3884,182 @@ SELECT * FROM usuarios WHERE nome = "João Silva";`
     title: 'Configuração de Energia',
     description: 'Configure o plano de energia para equilibrar desempenho e economia',
     language: 'markdown',
-    code: "- Acesse **Configurações > Sistema > Energia e suspensão**.\n- Ajuste o plano para **Desempenho Máximo** ou **Economia de Energia**."
-  }
+    code: "- Acesse **Configurações > Sistema > Energia e suspensão**.\n- Ajuste o plano para **Desempenho Máximo** ou **Economia de Energia**.",
+  },
+  ],
+},
+{
+  id: 'vscode',
+  name: 'VSCode Extensions',
+  icon: <AppWindow size={24} />,
+  description: 'Extensões essenciais para melhorar sua produtividade no Visual Studio Code.',
+  documentation: 'https://code.visualstudio.com/docs/editor/extension-marketplace',
+  tutorials: [
+    {
+      title: 'Guia de Extensões',
+      url: 'https://code.visualstudio.com/learn/get-started/extensions',
+    },
+    {
+      title: 'Marketplace VSCode',
+      url: 'https://marketplace.visualstudio.com/',
+    },
+  ],
+  snippets: [
+    {
+      id: 'prettier',
+      title: 'Prettier - Code formatter',
+      description: 'Formatador de código que suporta múltiplas linguagens e mantém um estilo consistente.',
+      code: `// 1. Instale a extensão:
+// Busque por "Prettier - Code formatter" no marketplace
+
+// 2. Configure no settings.json:
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5"
+}`,
+      language: ''
+    },
+    {
+      id: 'eslint',
+      title: 'ESLint',
+      description: 'Ferramenta de linting para identificar e corrigir problemas no código JavaScript/TypeScript.',
+      code: `// 1. Instale a extensão:
+// Busque por "ESLint" no marketplace
+
+// 2. Configure no settings.json:
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
   ]
+}`,
+      language: ''
+    },
+    {
+      id: 'gitlens',
+      title: 'GitLens',
+      description: 'Adiciona recursos avançados do Git diretamente no editor, como blame, histórico e comparações.',
+      code: `// 1. Instale a extensão:
+// Busque por "GitLens" no marketplace
+
+// 2. Recursos principais:
+// - Git blame na linha atual
+// - Histórico de alterações
+// - Comparação de branches
+// - Explorador do Git
+
+// 3. Atalhos úteis:
+// Alt+B - Toggle Git blame
+// Alt+H - Mostrar histórico do arquivo
+// Ctrl+Shift+G G - Abrir GitLens`,
+      language: ''
+    },
+    {
+      id: 'material-icon',
+      title: 'Material Icon Theme',
+      description: 'Adiciona ícones bonitos e intuitivos para diferentes tipos de arquivos e pastas.',
+      code: `// 1. Instale a extensão:
+// Busque por "Material Icon Theme" no marketplace
+
+// 2. Configure no settings.json:
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.activeIconPack": "react",
+  "material-icon-theme.folders.theme": "specific",
+  "material-icon-theme.folders.color": "#26a69a"
+}`,
+      language: ''
+    },
+    {
+      id: 'live-server',
+      title: 'Live Server',
+      description: 'Servidor de desenvolvimento local com recarga automática para páginas estáticas.',
+      code: `// 1. Instale a extensão:
+// Busque por "Live Server" no marketplace
+
+// 2. Como usar:
+// - Clique com botão direito no arquivo HTML
+// - Selecione "Open with Live Server"
+// - Ou use o atalho Alt+L Alt+O
+
+// 3. Configure no settings.json:
+{
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.root": "/public"
+}`,
+      language: ''
+    },
+    {
+      id: 'thunder-client',
+      title: 'Thunder Client',
+      description: 'Cliente REST leve e intuitivo, alternativa ao Postman integrada ao VSCode.',
+      code: `// 1. Instale a extensão:
+// Busque por "Thunder Client" no marketplace
+
+// 2. Como usar:
+// - Clique no ícone do Thunder Client na barra lateral
+// - Crie uma nova requisição (Ctrl+N)
+// - Selecione o método HTTP
+// - Digite a URL
+// - Adicione headers/body se necessário
+// - Envie a requisição
+
+// 3. Recursos:
+// - Coleções de requisições
+// - Variáveis de ambiente
+// - Testes automatizados
+// - Importação/Exportação`,
+      language: ''
+    },
+    {
+      id: 'color-highlight',
+      title: 'Color Highlight',
+      description: 'Destaca cores em seu código com a cor correspondente.',
+      code: `// 1. Instale a extensão:
+// Busque por "Color Highlight" no marketplace
+
+// 2. Suporta vários formatos:
+// - Hexadecimal: #RGB, #RGBA, #RRGGBB, #RRGGBBAA
+// - RGB/RGBA: rgb(0, 0, 0), rgba(0, 0, 0, 0)
+// - HSL/HSLA: hsl(0, 0%, 0%), hsla(0, 0%, 0%, 0)
+// - Palavras-chave CSS: red, blue, transparent
+
+// 3. Configure no settings.json:
+{
+  "color-highlight.markerType": "dot-before",
+  "color-highlight.markRuler": true
+}`,
+      language: ''
+    },
+    {
+      id: 'path-intellisense',
+      title: 'Path Intellisense',
+      description: 'Autocompletar caminhos de arquivos em seu código.',
+      code: `// 1. Instale a extensão:
+// Busque por "Path Intellisense" no marketplace
+
+// 2. Configure no settings.json:
+{
+  "typescript.suggest.paths": true,
+  "javascript.suggest.paths": true,
+  "path-intellisense.extensionOnImport": true,
+  "path-intellisense.showHiddenFiles": true
+}
+
+// 3. Uso:
+// - Digite o caminho e pressione Ctrl+Space
+// - Suporta imports relativos e absolutos
+// - Funciona com JavaScript, TypeScript, React, Vue, etc.`,
+      language: ''
+    }
+  ],
 }
 ];
