@@ -3083,59 +3083,143 @@ SELECT * FROM usuarios WHERE nome = "João Silva";`,
     snippets: [
       {
         id: 'docker-1',
-        title: 'Instalar Docker',
-        description: 'Como instalar o Docker no Linux',
+        title: 'Instalar Docker no Linux',
+        description: 'Passo a passo para instalar o Docker no Linux (Ubuntu)',
         language: 'bash',
         code: '# Atualize o sistema\nsudo apt update\n\n# Instale dependências\nsudo apt install apt-transport-https ca-certificates curl software-properties-common\n\n# Adicione a chave GPG oficial do Docker\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg\n\n# Adicione o repositório do Docker\necho "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\n\n# Instale o Docker\nsudo apt update\nsudo apt install docker-ce docker-ce-cli containerd.io\n\n# Verifique a instalação\nsudo docker --version'
       },
       {
         id: 'docker-2',
-        title: 'Executar um Contêiner',
-        description: 'Executar um contêiner a partir de uma imagem',
-        language: 'bash',
-        code: '# Executar um contêiner Nginx\nsudo docker run -d -p 8080:80 --name meu-nginx nginx\n\n# Acesse http://localhost:8080 para ver o Nginx rodando.'
+        title: 'Instalar Docker no Windows',
+        description: 'Passo a passo para instalar o Docker no Windows',
+        language: 'markdown',
+        code: '1. Baixe o Docker Desktop no site oficial: https://www.docker.com/products/docker-desktop.\n2. Execute o instalador e siga as instruções.\n3. Após a instalação, reinicie o computador.\n4. Abra o Docker Desktop e verifique se ele está rodando.\n5. Abra o terminal e execute `docker --version` para verificar a instalação.'
       },
       {
         id: 'docker-3',
-        title: 'Criar uma Imagem Personalizada',
-        description: 'Criar uma imagem Docker a partir de um Dockerfile',
-        language: 'dockerfile',
-        code: '# Dockerfile\nFROM ubuntu:20.04\nRUN apt update && apt install -y nginx\nCOPY index.html /var/www/html/\nEXPOSE 80\nCMD ["nginx", "-g", "daemon off;"]\n\n# Construir a imagem\nsudo docker build -t minha-imagem .\n\n# Executar a imagem\nsudo docker run -d -p 8080:80 --name meu-servidor minha-imagem'
+        title: 'Instalar Docker no macOS',
+        description: 'Passo a passo para instalar o Docker no macOS',
+        language: 'markdown',
+        code: '1. Baixe o Docker Desktop no site oficial: https://www.docker.com/products/docker-desktop.\n2. Execute o instalador e arraste o ícone do Docker para a pasta "Applications".\n3. Abra o Docker Desktop e siga as instruções iniciais.\n4. Verifique a instalação executando `docker --version` no terminal.'
       },
       {
         id: 'docker-4',
-        title: 'Listar Contêineres e Imagens',
-        description: 'Comandos para listar contêineres e imagens',
+        title: 'Executar um Contêiner',
+        description: 'Executar um contêiner a partir de uma imagem',
         language: 'bash',
-        code: '# Listar contêineres em execução\nsudo docker ps\n\n# Listar todos os contêineres (incluindo parados)\nsudo docker ps -a\n\n# Listar imagens disponíveis\nsudo docker images'
+        code: '# Executar um contêiner Nginx\ndocker run -d -p 8080:80 --name meu-nginx nginx\n\n# Acesse http://localhost:8080 para ver o Nginx rodando.'
       },
       {
         id: 'docker-5',
-        title: 'Parar e Remover Contêineres',
-        description: 'Comandos para parar e remover contêineres',
-        language: 'bash',
-        code: '# Parar um contêiner\nsudo docker stop meu-nginx\n\n# Remover um contêiner\nsudo docker rm meu-nginx\n\n# Remover todos os contêineres parados\nsudo docker container prune'
+        title: 'Criar uma Imagem Personalizada',
+        description: 'Criar uma imagem Docker a partir de um Dockerfile',
+        language: 'dockerfile',
+        code: '# Dockerfile\nFROM ubuntu:20.04\nRUN apt update && apt install -y nginx\nCOPY index.html /var/www/html/\nEXPOSE 80\nCMD ["nginx", "-g", "daemon off;"]\n\n# Construir a imagem\ndocker build -t minha-imagem .\n\n# Executar a imagem\ndocker run -d -p 8080:80 --name meu-servidor minha-imagem'
       },
       {
         id: 'docker-6',
-        title: 'Persistência de Dados com Volumes',
-        description: 'Usar volumes para persistir dados',
+        title: 'Listar Contêineres e Imagens',
+        description: 'Comandos para listar contêineres e imagens',
         language: 'bash',
-        code: '# Criar um volume\nsudo docker volume create meu-volume\n\n# Executar um contêiner com volume\nsudo docker run -d -p 8080:80 --name meu-nginx -v meu-volume:/usr/share/nginx/html nginx\n\n# Verificar volumes\nsudo docker volume ls'
+        code: '# Listar contêineres em execução\ndocker ps\n\n# Listar todos os contêineres (incluindo parados)\ndocker ps -a\n\n# Listar imagens disponíveis\ndocker images'
       },
       {
         id: 'docker-7',
-        title: 'Docker Compose',
-        description: 'Orquestrar múltiplos contêineres com Docker Compose',
-        language: 'yaml',
-        code: '# docker-compose.yml\nversion: "3.8"\nservices:\n  web:\n    image: nginx\n    ports:\n      - "8080:80"\n  db:\n    image: mysql\n    environment:\n      MYSQL_ROOT_PASSWORD: senha\n\n# Iniciar os contêineres\nsudo docker-compose up -d\n\n# Parar os contêineres\nsudo docker-compose down'
+        title: 'Parar e Remover Contêineres',
+        description: 'Comandos para parar e remover contêineres',
+        language: 'bash',
+        code: '# Parar um contêiner\ndocker stop meu-nginx\n\n# Remover um contêiner\ndocker rm meu-nginx\n\n# Remover todos os contêineres parados\ndocker container prune'
       },
       {
         id: 'docker-8',
+        title: 'Persistência de Dados com Volumes',
+        description: 'Usar volumes para persistir dados',
+        language: 'bash',
+        code: '# Criar um volume\ndocker volume create meu-volume\n\n# Executar um contêiner com volume\ndocker run -d -p 8080:80 --name meu-nginx -v meu-volume:/usr/share/nginx/html nginx\n\n# Verificar volumes\ndocker volume ls'
+      },
+      {
+        id: 'docker-9',
+        title: 'Docker Compose',
+        description: 'Orquestrar múltiplos contêineres com Docker Compose',
+        language: 'yaml',
+        code: '# docker-compose.yml\nversion: "3.8"\nservices:\n  web:\n    image: nginx\n    ports:\n      - "8080:80"\n  db:\n    image: mysql\n    environment:\n      MYSQL_ROOT_PASSWORD: senha\n\n# Iniciar os contêineres\ndocker-compose up -d\n\n# Parar os contêineres\ndocker-compose down'
+      },
+      {
+        id: 'docker-10',
         title: 'Redes no Docker',
         description: 'Criar e gerenciar redes para contêineres',
         language: 'bash',
-        code: '# Criar uma rede\nsudo docker network create minha-rede\n\n# Executar contêineres na mesma rede\nsudo docker run -d --name meu-nginx --network minha-rede nginx\nsudo docker run -d --name meu-mysql --network minha-rede mysql\n\n# Verificar redes\nsudo docker network ls'
+        code: '# Criar uma rede\ndocker network create minha-rede\n\n# Executar contêineres na mesma rede\ndocker run -d --name meu-nginx --network minha-rede nginx\ndocker run -d --name meu-mysql --network minha-rede mysql\n\n# Verificar redes\ndocker network ls'
+      },
+      {
+        id: 'docker-11',
+        title: 'Executar Comandos Dentro de um Contêiner',
+        description: 'Executar comandos em um contêiner em execução',
+        language: 'bash',
+        code: '# Executar um comando no contêiner\ndocker exec -it meu-nginx bash\n\n# Exemplo: Listar arquivos no contêiner Nginx\nls /usr/share/nginx/html'
+      },
+      {
+        id: 'docker-12',
+        title: 'Copiar Arquivos para/Dentro de um Contêiner',
+        description: 'Copiar arquivos entre o host e o contêiner',
+        language: 'bash',
+        code: '# Copiar arquivo do host para o contêiner\ndocker cp meu-arquivo.txt meu-nginx:/usr/share/nginx/html\n\n# Copiar arquivo do contêiner para o host\ndocker cp meu-nginx:/usr/share/nginx/html/meu-arquivo.txt .'
+      },
+      {
+        id: 'docker-13',
+        title: 'Configurar Variáveis de Ambiente',
+        description: 'Passar variáveis de ambiente para um contêiner',
+        language: 'bash',
+        code: '# Executar um contêiner com variáveis de ambiente\ndocker run -d --name meu-app -e "VARIAVEL=valor" minha-imagem'
+      },
+      {
+        id: 'docker-14',
+        title: 'Logs de Contêineres',
+        description: 'Visualizar logs de um contêiner',
+        language: 'bash',
+        code: '# Ver logs de um contêiner\ndocker logs meu-nginx\n\n# Ver logs em tempo real\ndocker logs -f meu-nginx'
+      },
+      {
+        id: 'docker-15',
+        title: 'Remover Imagens Não Utilizadas',
+        description: 'Limpar imagens não utilizadas',
+        language: 'bash',
+        code: '# Remover imagens não utilizadas\ndocker image prune\n\n# Remover todas as imagens não utilizadas (incluindo as não referenciadas)\ndocker image prune -a'
+      },
+      {
+        id: 'docker-16',
+        title: 'Configurar Limites de Recursos',
+        description: 'Limitar CPU e memória de um contêiner',
+        language: 'bash',
+        code: '# Executar um contêiner com limites de CPU e memória\ndocker run -d --name meu-app --cpus="1.5" --memory="512m" minha-imagem'
+      },
+      {
+        id: 'docker-17',
+        title: 'Criar um Dockerfile para uma Aplicação Node.js',
+        description: 'Exemplo de Dockerfile para uma aplicação Node.js',
+        language: 'dockerfile',
+        code: '# Dockerfile\nFROM node:14\nWORKDIR /app\nCOPY package.json .\nRUN npm install\nCOPY . .\nEXPOSE 3000\nCMD ["node", "app.js"]'
+      },
+      {
+        id: 'docker-18',
+        title: 'Criar um Dockerfile para uma Aplicação Python',
+        description: 'Exemplo de Dockerfile para uma aplicação Python',
+        language: 'dockerfile',
+        code: '# Dockerfile\nFROM python:3.9-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install -r requirements.txt\nCOPY . .\nEXPOSE 5000\nCMD ["python", "app.py"]'
+      },
+      {
+        id: 'docker-19',
+        title: 'Configurar Docker Compose para um Ambiente de Desenvolvimento',
+        description: 'Exemplo de Docker Compose para um ambiente com Node.js e MongoDB',
+        language: 'yaml',
+        code: '# docker-compose.yml\nversion: "3.8"\nservices:\n  web:\n    image: node:14\n    working_dir: /app\n    volumes:\n      - .:/app\n    ports:\n      - "3000:3000"\n    command: npm start\n  db:\n    image: mongo\n    ports:\n      - "27017:27017"'
+      },
+      {
+        id: 'docker-20',
+        title: 'Configurar Docker Compose para um Ambiente de Produção',
+        description: 'Exemplo de Docker Compose para um ambiente de produção com Nginx e MySQL',
+        language: 'yaml',
+        code: '# docker-compose.yml\nversion: "3.8"\nservices:\n  web:\n    image: nginx\n    ports:\n      - "80:80"\n    volumes:\n      - ./html:/usr/share/nginx/html\n  db:\n    image: mysql\n    environment:\n      MYSQL_ROOT_PASSWORD: senha\n    volumes:\n      - db-data:/var/lib/mysql\nvolumes:\n  db-data:'
       }
     ]
   },
