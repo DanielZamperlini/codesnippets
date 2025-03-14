@@ -3071,6 +3071,75 @@ SELECT * FROM usuarios WHERE nome = "João Silva";`,
     ],
   },
   {
+    id: 'docker',
+    name: 'Docker',
+    icon: <Terminal size={24} className="text-blue-500" />,
+    description: 'Plataforma para criar, implantar e gerenciar contêineres',
+    documentation: 'https://docs.docker.com/',
+    tutorials: [
+      { title: 'Docker Docs', url: 'https://docs.docker.com/' },
+      { title: 'Docker Tutorial', url: 'https://www.docker.com/101-tutorial' }
+    ],
+    snippets: [
+      {
+        id: 'docker-1',
+        title: 'Instalar Docker',
+        description: 'Como instalar o Docker no Linux',
+        language: 'bash',
+        code: '# Atualize o sistema\nsudo apt update\n\n# Instale dependências\nsudo apt install apt-transport-https ca-certificates curl software-properties-common\n\n# Adicione a chave GPG oficial do Docker\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg\n\n# Adicione o repositório do Docker\necho "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\n\n# Instale o Docker\nsudo apt update\nsudo apt install docker-ce docker-ce-cli containerd.io\n\n# Verifique a instalação\nsudo docker --version'
+      },
+      {
+        id: 'docker-2',
+        title: 'Executar um Contêiner',
+        description: 'Executar um contêiner a partir de uma imagem',
+        language: 'bash',
+        code: '# Executar um contêiner Nginx\nsudo docker run -d -p 8080:80 --name meu-nginx nginx\n\n# Acesse http://localhost:8080 para ver o Nginx rodando.'
+      },
+      {
+        id: 'docker-3',
+        title: 'Criar uma Imagem Personalizada',
+        description: 'Criar uma imagem Docker a partir de um Dockerfile',
+        language: 'dockerfile',
+        code: '# Dockerfile\nFROM ubuntu:20.04\nRUN apt update && apt install -y nginx\nCOPY index.html /var/www/html/\nEXPOSE 80\nCMD ["nginx", "-g", "daemon off;"]\n\n# Construir a imagem\nsudo docker build -t minha-imagem .\n\n# Executar a imagem\nsudo docker run -d -p 8080:80 --name meu-servidor minha-imagem'
+      },
+      {
+        id: 'docker-4',
+        title: 'Listar Contêineres e Imagens',
+        description: 'Comandos para listar contêineres e imagens',
+        language: 'bash',
+        code: '# Listar contêineres em execução\nsudo docker ps\n\n# Listar todos os contêineres (incluindo parados)\nsudo docker ps -a\n\n# Listar imagens disponíveis\nsudo docker images'
+      },
+      {
+        id: 'docker-5',
+        title: 'Parar e Remover Contêineres',
+        description: 'Comandos para parar e remover contêineres',
+        language: 'bash',
+        code: '# Parar um contêiner\nsudo docker stop meu-nginx\n\n# Remover um contêiner\nsudo docker rm meu-nginx\n\n# Remover todos os contêineres parados\nsudo docker container prune'
+      },
+      {
+        id: 'docker-6',
+        title: 'Persistência de Dados com Volumes',
+        description: 'Usar volumes para persistir dados',
+        language: 'bash',
+        code: '# Criar um volume\nsudo docker volume create meu-volume\n\n# Executar um contêiner com volume\nsudo docker run -d -p 8080:80 --name meu-nginx -v meu-volume:/usr/share/nginx/html nginx\n\n# Verificar volumes\nsudo docker volume ls'
+      },
+      {
+        id: 'docker-7',
+        title: 'Docker Compose',
+        description: 'Orquestrar múltiplos contêineres com Docker Compose',
+        language: 'yaml',
+        code: '# docker-compose.yml\nversion: "3.8"\nservices:\n  web:\n    image: nginx\n    ports:\n      - "8080:80"\n  db:\n    image: mysql\n    environment:\n      MYSQL_ROOT_PASSWORD: senha\n\n# Iniciar os contêineres\nsudo docker-compose up -d\n\n# Parar os contêineres\nsudo docker-compose down'
+      },
+      {
+        id: 'docker-8',
+        title: 'Redes no Docker',
+        description: 'Criar e gerenciar redes para contêineres',
+        language: 'bash',
+        code: '# Criar uma rede\nsudo docker network create minha-rede\n\n# Executar contêineres na mesma rede\nsudo docker run -d --name meu-nginx --network minha-rede nginx\nsudo docker run -d --name meu-mysql --network minha-rede mysql\n\n# Verificar redes\nsudo docker network ls'
+      }
+    ]
+  },
+  {
     id: 'csharp',
     name: 'C#',
     icon: <FileCode size={24} className="text-purple-500" />,
