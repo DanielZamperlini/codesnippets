@@ -833,6 +833,103 @@ export const categories: Category[] = [
     ],
   },
   {
+    id: 'cypress',
+    name: 'Cypress',
+    icon: <Terminal size={24} className="text-green-500" />,
+    description: 'Ferramenta de teste end-to-end para aplicações web modernas',
+    documentation: 'https://docs.cypress.io/guides/overview/why-cypress',
+    tutorials: [
+      { title: 'Introdução ao Cypress', url: 'https://docs.cypress.io/guides/core-concepts/introduction-to-cypress' },
+      { title: 'Testes E2E com Cypress', url: 'https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test' }
+    ],
+    snippets: [
+      {
+        id: 'cypress-1',
+        title: 'Instalação Cypress',
+        description: 'Instalar Cypress em um projeto existente',
+        language: 'bash',
+        code: 'npm install cypress --save-dev\n\n# Abrir o Cypress (interface interativa)\nnpx cypress open\n\n# Rodar testes no modo headless\nnpx cypress run'
+      },
+      {
+        id: 'cypress-2',
+        title: 'Configuração Básica',
+        description: 'Configuração inicial do cypress.config.js',
+        language: 'javascript',
+        code: 'const { defineConfig } = require("cypress");\n\nmodule.exports = defineConfig({\n  e2e: {\n    baseUrl: "http://localhost:3000",\n    setupNodeEvents(on, config) {\n      // Implementar plugins aqui\n    },\n    viewportWidth: 1280,\n    viewportHeight: 720,\n    defaultCommandTimeout: 5000,\n    video: false\n  },\n  component: {\n    devServer: {\n      framework: "react",\n      bundler: "webpack"\n    }\n  }\n});'
+      },
+      {
+        id: 'cypress-3',
+        title: 'Teste de Login',
+        description: 'Teste completo de fluxo de login',
+        language: 'javascript',
+        code: 'describe("Fluxo de Login", () => {\n  beforeEach(() => {\n    cy.visit("/login");\n  });\n\n  it("Deve logar com sucesso", () => {\n    cy.get("#email").type("usuario@exemplo.com");\n    cy.get("#password").type("senha123{enter}");\n    \n    cy.url().should("include", "/dashboard");\n    cy.contains("Bem-vindo, usuário!").should("be.visible");\n  });\n\n  it("Deve mostrar erro com credenciais inválidas", () => {\n    cy.get("#email").type("invalido@exemplo.com");\n    cy.get("#password").type("senhaerrada{enter}");\n    \n    cy.contains("Credenciais inválidas").should("be.visible");\n    cy.url().should("include", "/login");\n  });\n});'
+      },
+      {
+        id: 'cypress-4',
+        title: 'Mock de API',
+        description: 'Interceptar e mockar requisições HTTP',
+        language: 'javascript',
+        code: 'describe("Teste com API Mock", () => {\n  it("Deve carregar produtos mockados", () => {\n    cy.intercept("GET", "/api/products", {\n      statusCode: 200,\n      body: [\n        { id: 1, name: "Produto A", price: 100 },\n        { id: 2, name: "Produto B", price: 200 }\n      ]\n    }).as("getProducts");\n    \n    cy.visit("/products");\n    cy.wait("@getProducts");\n    \n    cy.get(".product").should("have.length", 2);\n    cy.contains(".product", "Produto A").should("exist");\n  });\n});'
+      },
+      {
+        id: 'cypress-5',
+        title: 'Teste de Componente React',
+        description: 'Testar componente React isoladamente',
+        language: 'javascript',
+        code: 'import React from "react";\nimport { mount } from "cypress/react";\nimport Button from "./Button";\n\ndescribe("Button Component", () => {\n  it("Renderiza com texto", () => {\n    mount(<Button>Clique Aqui</Button>);\n    cy.contains("Clique Aqui").should("be.visible");\n  });\n\n  it("Chama onClick quando clicado", () => {\n    const onClick = cy.stub().as("clickHandler");\n    mount(<Button onClick={onClick}>Botão</Button>);\n    \n    cy.get("button").click();\n    cy.get("@clickHandler").should("have.been.calledOnce");\n  });\n});'
+      },
+      {
+        id: 'cypress-6',
+        title: 'Fixtures e Dados de Teste',
+        description: 'Usar arquivos de fixture para dados de teste',
+        language: 'javascript',
+        code: '// cypress/fixtures/users.json\n{\n  "admin": {\n    "email": "admin@exemplo.com",\n    "password": "admin123"\n  },\n  "user": {\n    "email": "user@exemplo.com",\n    "password": "user123"\n  }\n}\n\n// No teste\nbeforeEach(() => {\n  cy.fixture("users").then((users) => {\n    this.users = users;\n  });\n});\n\nit("Login como admin", () => {\n  const { email, password } = this.users.admin;\n  cy.login(email, password);\n  // ...\n});'
+      },
+      {
+        id: 'cypress-7',
+        title: 'Comandos Customizados',
+        description: 'Criar e usar comandos personalizados',
+        language: 'javascript',
+        code: '// cypress/support/commands.js\nCypress.Commands.add("login", (email, password) => {\n  cy.session([email, password], () => {\n    cy.visit("/login");\n    cy.get("#email").type(email);\n    cy.get("#password").type(`${password}{enter}`);\n    cy.url().should("include", "/dashboard");\n  });\n});\n\n// No teste\ncy.login("usuario@exemplo.com", "senha123");\ncy.visit("/dashboard");'
+      },
+      {
+        id: 'cypress-8',
+        title: 'Teste de Acessibilidade',
+        description: 'Verificar acessibilidade com axe-core',
+        language: 'javascript',
+        code: '// cypress/support/commands.js\nimport "cypress-axe";\n\n// No teste\nit("Deve passar nos testes de acessibilidade", () => {\n  cy.visit("/");\n  cy.injectAxe();\n  cy.checkA11y(null, {\n    rules: {\n      "color-contrast": { enabled: false } // Desativar regra específica\n    }\n  });\n});'
+      },
+      {
+        id: 'cypress-9',
+        title: 'Teste de Visual',
+        description: 'Comparação visual com Percy ou Applitools',
+        language: 'javascript',
+        code: '// Com Percy instalado (npm i @percy/cypress)\ndescribe("Teste Visual", () => {\n  it("Compara screenshot da página inicial", () => {\n    cy.visit("/");\n    cy.percySnapshot("Página Inicial");\n  });\n\n  it("Compara screenshot do mobile", () => {\n    cy.viewport("iphone-8");\n    cy.visit("/");\n    cy.percySnapshot("Página Inicial - Mobile");\n  });\n});'
+      },
+      {
+        id: 'cypress-10',
+        title: 'Teste de Upload',
+        description: 'Testar upload de arquivos',
+        language: 'javascript',
+        code: 'describe("Upload de Arquivo", () => {\n  it("Deve fazer upload com sucesso", () => {\n    cy.visit("/upload");\n    \n    cy.fixture("example.pdf", "binary")\n      .then((file) => Cypress.Blob.binaryStringToBlob(file))\n      .then((blob) => {\n        const file = new File([blob], "example.pdf", { type: "application/pdf" });\n        cy.get("input[type=file]").attachFile({\n          fileContent: file,\n          fileName: "example.pdf",\n          mimeType: "application/pdf"\n        });\n      });\n    \n    cy.get(".upload-status").should("contain", "Upload completo");\n  });\n});'
+      },
+      {
+        id: 'cypress-11',
+        title: 'Teste de Performance',
+        description: 'Medir métricas de performance',
+        language: 'javascript',
+        code: 'describe("Performance", () => {\n  it("Deve carregar a página em menos de 2s", () => {\n    cy.visit("/", {\n      onBeforeLoad: (win) => {\n        win.performance.mark("start-loading");\n      },\n      onLoad: (win) => {\n        win.performance.mark("end-loading");\n      }\n    });\n    \n    cy.window().then((win) => {\n      win.performance.measure("pageLoad", "start-loading", "end-loading");\n      const measure = win.performance.getEntriesByName("pageLoad")[0];\n      expect(measure.duration).to.be.lessThan(2000);\n    });\n  });\n});'
+      },
+      {
+        id: 'cypress-12',
+        title: 'Teste em Múltiplos Viewports',
+        description: 'Testar responsividade em diferentes tamanhos de tela',
+        language: 'javascript',
+        code: 'const viewports = [\n  "macbook-16",\n  "ipad-2",\n  "iphone-xr",\n  [1920, 1080], // Custom size\n];\n\nviewports.forEach((viewport) => {\n  describe(`Teste no viewport ${viewport}`, () => {\n    beforeEach(() => {\n      if (Cypress._.isArray(viewport)) {\n        cy.viewport(viewport[0], viewport[1]);\n      } else {\n        cy.viewport(viewport);\n      }\n      cy.visit("/");\n    });\n\n    it("Deve exibir o menu corretamente", () => {\n      cy.get(".navbar").should("be.visible");\n      \n      if (["iphone-xr", "ipad-2"].includes(viewport)) {\n        cy.get(".menu-button").click();\n        cy.get(".mobile-menu").should("be.visible");\n      }\n    });\n  });\n});'
+      }
+    ]
+  },
+  {
     id: 'nextjs',
     name: 'Next.js',
     icon: <Layers size={24} className="text-green-400" />,
