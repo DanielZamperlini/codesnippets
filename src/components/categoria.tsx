@@ -197,6 +197,163 @@ export const categories: Category[] = [
     ],
   },
   {
+    id: 'python',
+    name: 'Python',
+    icon: <FileCode size={24} className="text-yellow-400" />,
+    description:
+      'Linguagem de programação de alto nível para desenvolvimento rápido e eficiente',
+    documentation: 'https://docs.python.org/3/',
+    tutorials: [
+      { title: 'Python Documentation', url: 'https://docs.python.org/3/' },
+      {
+        title: 'Python Tutorial (W3Schools)',
+        url: 'https://www.w3schools.com/python/',
+      },
+    ],
+    snippets: [
+      {
+        id: 'python-1',
+        title: 'Hello World',
+        description: 'Programa básico em Python',
+        language: 'python',
+        code: 'print("Hello, World!")',
+      },
+      {
+        id: 'python-2',
+        title: 'Variáveis e Tipos',
+        description: 'Declaração de variáveis e tipos de dados',
+        language: 'python',
+        code: '# Tipos básicos\nnome = "João"  # String\nidade = 25     # Inteiro\naltura = 1.75  # Float\ne_casado = False  # Booleano\n\nprint(type(nome), type(idade), type(altura), type(e_casado))',
+      },
+      {
+        id: 'python-3',
+        title: 'Condicionais (if-elif-else)',
+        description: 'Estruturas condicionais em Python',
+        language: 'python',
+        code: 'idade = 18\n\nif idade < 12:\n    print("Criança")\nelif idade < 18:\n    print("Adolescente")\nelif idade < 60:\n    print("Adulto")\nelse:\n    print("Idoso")',
+      },
+      {
+        id: 'python-4',
+        title: 'Loops (for e while)',
+        description: 'Estruturas de repetição em Python',
+        language: 'python',
+        code: '# Loop for\nfor i in range(5):\n    print(i)\n\n# Loop while\ncontador = 0\nwhile contador < 5:\n    print(contador)\n    contador += 1',
+      },
+      {
+        id: 'python-5',
+        title: 'Listas',
+        description: 'Trabalhando com listas em Python',
+        language: 'python',
+        code: '# Criando uma lista\nfrutas = ["maçã", "banana", "laranja"]\n\n# Acessando elementos\nprint(frutas[1])  # banana\n\n# Adicionando elementos\nfrutas.append("uva")\n\n# Iterando sobre a lista\nfor fruta in frutas:\n    print(fruta)',
+      },
+      {
+        id: 'python-6',
+        title: 'Dicionários',
+        description: 'Trabalhando com dicionários em Python',
+        language: 'python',
+        code: '# Criando um dicionário\npessoa = {\n    "nome": "Maria",\n    "idade": 30,\n    "cidade": "São Paulo"\n}\n\n# Acessando valores\nprint(pessoa["nome"])\n\n# Adicionando novo par chave-valor\npessoa["profissão"] = "Engenheira"\n\n# Iterando sobre o dicionário\nfor chave, valor in pessoa.items():\n    print(f"{chave}: {valor}")',
+      },
+      {
+        id: 'python-7',
+        title: 'Funções',
+        description: 'Definindo e chamando funções',
+        language: 'python',
+        code: '# Função simples\ndef saudacao(nome):\n    return f"Olá, {nome}!"\n\n# Chamando a função\nmensagem = saudacao("Carlos")\nprint(mensagem)\n\n# Função com valor padrão\ndef potencia(base, expoente=2):\n    return base ** expoente\n\nprint(potencia(3))  # 9\nprint(potencia(3, 3))  # 27',
+      },
+      {
+        id: 'python-8',
+        title: 'Manipulação de Arquivos',
+        description: 'Lendo e escrevendo em arquivos',
+        language: 'python',
+        code: '# Escrevendo em um arquivo\nwith open("arquivo.txt", "w") as arquivo:\n    arquivo.write("Primeira linha\\n")\n    arquivo.write("Segunda linha\\n")\n\n# Lendo de um arquivo\nwith open("arquivo.txt", "r") as arquivo:\n    conteudo = arquivo.read()\n    print(conteudo)',
+      },
+      {
+        id: 'python-9',
+        title: 'Tratamento de Exceções',
+        description: 'Capturando e tratando exceções',
+        language: 'python',
+        code: 'try:\n    numero = int(input("Digite um número: "))\n    resultado = 10 / numero\n    print(resultado)\nexcept ValueError:\n    print("Por favor, digite um número válido!")\nexcept ZeroDivisionError:\n    print("Não é possível dividir por zero!")\nexcept Exception as e:\n    print(f"Ocorreu um erro: {e}")',
+      },
+      {
+        id: 'python-10',
+        title: 'List Comprehensions',
+        description: 'Criando listas de forma concisa',
+        language: 'python',
+        code: '# List comprehension básica\nquadrados = [x**2 for x in range(10)]\nprint(quadrados)\n\n# Com condicional\npares = [x for x in range(20) if x % 2 == 0]\nprint(pares)',
+      },
+      {
+        id: 'python-11',
+        title: 'Funções Lambda',
+        description: 'Funções anônimas em Python',
+        language: 'python',
+        code: '# Função lambda simples\ndobro = lambda x: x * 2\nprint(dobro(5))  # 10\n\n# Usando com map\nnumeros = [1, 2, 3, 4]\nquadrados = list(map(lambda x: x**2, numeros))\nprint(quadrados)  # [1, 4, 9, 16]',
+      },
+      {
+        id: 'python-12',
+        title: 'Classes e Objetos',
+        description: 'Programação Orientada a Objetos em Python',
+        language: 'python',
+        code: 'class Pessoa:\n    def __init__(self, nome, idade):\n        self.nome = nome\n        self.idade = idade\n    \n    def apresentar(self):\n        return f"Meu nome é {self.nome} e tenho {self.idade} anos."\n\n# Criando um objeto\np1 = Pessoa("Ana", 28)\nprint(p1.apresentar())',
+      },
+      {
+        id: 'python-13',
+        title: 'Herança',
+        description: 'Herança em classes Python',
+        language: 'python',
+        code: 'class Animal:\n    def __init__(self, nome):\n        self.nome = nome\n    \n    def fazer_som(self):\n        return "Som genérico"\n\nclass Cachorro(Animal):\n    def fazer_som(self):\n        return "Au au!"\n\nanimal = Animal("Genérico")\ncachorro = Cachorro("Rex")\n\nprint(animal.fazer_som())  # Som genérico\nprint(cachorro.fazer_som())  # Au au!',
+      },
+      {
+        id: 'python-14',
+        title: 'Módulos e Importação',
+        description: 'Trabalhando com módulos em Python',
+        language: 'python',
+        code: '# Importando um módulo completo\nimport math\n\nprint(math.sqrt(16))  # 4.0\n\n# Importando funções específicas\nfrom math import pi, cos\n\nprint(cos(pi))  # -1.0\n\n# Criando e usando seu próprio módulo\n# (arquivo meu_modulo.py)\n# def saudacao():\n#     return "Olá do módulo!"\n# \n# from meu_modulo import saudacao\n# print(saudacao())',
+      },
+      {
+        id: 'python-15',
+        title: 'Manipulação de Strings',
+        description: 'Operações comuns com strings',
+        language: 'python',
+        code: 'texto = " Python é incrível "\n\n# Métodos de string\nprint(texto.strip())  # Remove espaços extras\nprint(texto.lower())  # Tudo em minúsculo\nprint(texto.upper())  # Tudo em maiúsculo\nprint(texto.replace("incrível", "fantástico"))\nprint("é" in texto)  # Verifica se substring existe\nprint(texto.split())  # Divide em lista de palavras',
+      },
+      {
+        id: 'python-16',
+        title: 'Datas e Horas',
+        description: 'Trabalhando com datas em Python',
+        language: 'python',
+        code: 'from datetime import datetime, timedelta\n\n# Data atual\nagora = datetime.now()\nprint(agora)\nprint(agora.strftime("%d/%m/%Y %H:%M:%S"))\n\n# Criando uma data específica\ndata = datetime(2023, 12, 31)\nprint(data)\n\n# Operações com datas\ndiferenca = data - agora\nprint(diferenca.days)\n\n# Adicionando dias\nnova_data = agora + timedelta(days=7)\nprint(nova_data)',
+      },
+      {
+        id: 'python-17',
+        title: 'Trabalhando com JSON',
+        description: 'Codificando e decodificando JSON',
+        language: 'python',
+        code: 'import json\n\n# Dicionário para JSON\npessoa = {\n    "nome": "Carlos",\n    "idade": 35,\n    "cidade": "Rio de Janeiro"\n}\n\njson_str = json.dumps(pessoa, indent=2)\nprint(json_str)\n\n# JSON para dicionário\npessoa_dict = json.loads(json_str)\nprint(pessoa_dict["nome"])',
+      },
+      {
+        id: 'python-18',
+        title: 'Expressões Regulares',
+        description: 'Busca de padrões com regex',
+        language: 'python',
+        code: 'import re\n\n# Buscando um padrão\ntexto = "Meu telefone é (21) 98765-4321 e meu email é exemplo@email.com"\n\n# Encontrar telefone\npadrao_tel = r"\\(\\d{2}\\) \\d{5}-\\d{4}"\ntelefone = re.search(padrao_tel, texto)\nprint(telefone.group()) if telefone else print("Não encontrado")\n\n# Encontrar todos os emails\nemails = re.findall(r"[\\w.-]+@[\\w.-]+\\.\\w+", texto)\nprint(emails)',
+      },
+      {
+        id: 'python-19',
+        title: 'Geradores',
+        description: 'Criando e usando geradores',
+        language: 'python',
+        code: '# Função geradora\ndef gerador_pares(limite):\n    num = 0\n    while num < limite:\n        yield num\n        num += 2\n\n# Usando o gerador\nfor par in gerador_pares(10):\n    print(par)\n\n# Expressão geradora\nquadrados = (x**2 for x in range(5))\nprint(list(quadrados))',
+      },
+      {
+        id: 'python-20',
+        title: 'Decoradores',
+        description: 'Criando e usando decoradores',
+        language: 'python',
+        code: '# Decorador simples\ndef meu_decorador(funcao):\n    def wrapper():\n        print("Antes da função")\n        funcao()\n        print("Depois da função")\n    return wrapper\n\n@meu_decorador\ndef dizer_ola():\n    print("Olá!")\n\ndizer_ola()\n\n# Decorador com argumentos\ndef decorador_com_args(funcao):\n    def wrapper(*args, **kwargs):\n        print(f"Chamando {funcao.__name__} com args: {args}, kwargs: {kwargs}")\n        return funcao(*args, **kwargs)\n    return wrapper\n\n@decorador_com_args\n def somar(a, b):\n    return a + b\n\nprint(somar(3, 5))',
+      },
+    ],
+  },
+  {
     id: 'logica-programacao',
     name: 'Lógica de Programação',
     icon: <Cpu size={24} className="text-blue-500" />,
@@ -1000,8 +1157,14 @@ export const categories: Category[] = [
     description: 'Ferramenta de teste end-to-end para aplicações web modernas',
     documentation: 'https://docs.cypress.io/guides/overview/why-cypress',
     tutorials: [
-      { title: 'Introdução ao Cypress', url: 'https://docs.cypress.io/guides/core-concepts/introduction-to-cypress' },
-      { title: 'Testes E2E com Cypress', url: 'https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test' }
+      {
+        title: 'Introdução ao Cypress',
+        url: 'https://docs.cypress.io/guides/core-concepts/introduction-to-cypress',
+      },
+      {
+        title: 'Testes E2E com Cypress',
+        url: 'https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test',
+      },
     ],
     snippets: [
       {
@@ -1009,86 +1172,86 @@ export const categories: Category[] = [
         title: 'Instalação Cypress',
         description: 'Instalar Cypress em um projeto existente',
         language: 'bash',
-        code: 'npm install cypress --save-dev\n\n# Abrir o Cypress (interface interativa)\nnpx cypress open\n\n# Rodar testes no modo headless\nnpx cypress run'
+        code: 'npm install cypress --save-dev\n\n# Abrir o Cypress (interface interativa)\nnpx cypress open\n\n# Rodar testes no modo headless\nnpx cypress run',
       },
       {
         id: 'cypress-2',
         title: 'Configuração Básica',
         description: 'Configuração inicial do cypress.config.js',
         language: 'javascript',
-        code: 'const { defineConfig } = require("cypress");\n\nmodule.exports = defineConfig({\n  e2e: {\n    baseUrl: "http://localhost:3000",\n    setupNodeEvents(on, config) {\n      // Implementar plugins aqui\n    },\n    viewportWidth: 1280,\n    viewportHeight: 720,\n    defaultCommandTimeout: 5000,\n    video: false\n  },\n  component: {\n    devServer: {\n      framework: "react",\n      bundler: "webpack"\n    }\n  }\n});'
+        code: 'const { defineConfig } = require("cypress");\n\nmodule.exports = defineConfig({\n  e2e: {\n    baseUrl: "http://localhost:3000",\n    setupNodeEvents(on, config) {\n      // Implementar plugins aqui\n    },\n    viewportWidth: 1280,\n    viewportHeight: 720,\n    defaultCommandTimeout: 5000,\n    video: false\n  },\n  component: {\n    devServer: {\n      framework: "react",\n      bundler: "webpack"\n    }\n  }\n});',
       },
       {
         id: 'cypress-3',
         title: 'Teste de Login',
         description: 'Teste completo de fluxo de login',
         language: 'javascript',
-        code: 'describe("Fluxo de Login", () => {\n  beforeEach(() => {\n    cy.visit("/login");\n  });\n\n  it("Deve logar com sucesso", () => {\n    cy.get("#email").type("usuario@exemplo.com");\n    cy.get("#password").type("senha123{enter}");\n    \n    cy.url().should("include", "/dashboard");\n    cy.contains("Bem-vindo, usuário!").should("be.visible");\n  });\n\n  it("Deve mostrar erro com credenciais inválidas", () => {\n    cy.get("#email").type("invalido@exemplo.com");\n    cy.get("#password").type("senhaerrada{enter}");\n    \n    cy.contains("Credenciais inválidas").should("be.visible");\n    cy.url().should("include", "/login");\n  });\n});'
+        code: 'describe("Fluxo de Login", () => {\n  beforeEach(() => {\n    cy.visit("/login");\n  });\n\n  it("Deve logar com sucesso", () => {\n    cy.get("#email").type("usuario@exemplo.com");\n    cy.get("#password").type("senha123{enter}");\n    \n    cy.url().should("include", "/dashboard");\n    cy.contains("Bem-vindo, usuário!").should("be.visible");\n  });\n\n  it("Deve mostrar erro com credenciais inválidas", () => {\n    cy.get("#email").type("invalido@exemplo.com");\n    cy.get("#password").type("senhaerrada{enter}");\n    \n    cy.contains("Credenciais inválidas").should("be.visible");\n    cy.url().should("include", "/login");\n  });\n});',
       },
       {
         id: 'cypress-4',
         title: 'Mock de API',
         description: 'Interceptar e mockar requisições HTTP',
         language: 'javascript',
-        code: 'describe("Teste com API Mock", () => {\n  it("Deve carregar produtos mockados", () => {\n    cy.intercept("GET", "/api/products", {\n      statusCode: 200,\n      body: [\n        { id: 1, name: "Produto A", price: 100 },\n        { id: 2, name: "Produto B", price: 200 }\n      ]\n    }).as("getProducts");\n    \n    cy.visit("/products");\n    cy.wait("@getProducts");\n    \n    cy.get(".product").should("have.length", 2);\n    cy.contains(".product", "Produto A").should("exist");\n  });\n});'
+        code: 'describe("Teste com API Mock", () => {\n  it("Deve carregar produtos mockados", () => {\n    cy.intercept("GET", "/api/products", {\n      statusCode: 200,\n      body: [\n        { id: 1, name: "Produto A", price: 100 },\n        { id: 2, name: "Produto B", price: 200 }\n      ]\n    }).as("getProducts");\n    \n    cy.visit("/products");\n    cy.wait("@getProducts");\n    \n    cy.get(".product").should("have.length", 2);\n    cy.contains(".product", "Produto A").should("exist");\n  });\n});',
       },
       {
         id: 'cypress-5',
         title: 'Teste de Componente React',
         description: 'Testar componente React isoladamente',
         language: 'javascript',
-        code: 'import React from "react";\nimport { mount } from "cypress/react";\nimport Button from "./Button";\n\ndescribe("Button Component", () => {\n  it("Renderiza com texto", () => {\n    mount(<Button>Clique Aqui</Button>);\n    cy.contains("Clique Aqui").should("be.visible");\n  });\n\n  it("Chama onClick quando clicado", () => {\n    const onClick = cy.stub().as("clickHandler");\n    mount(<Button onClick={onClick}>Botão</Button>);\n    \n    cy.get("button").click();\n    cy.get("@clickHandler").should("have.been.calledOnce");\n  });\n});'
+        code: 'import React from "react";\nimport { mount } from "cypress/react";\nimport Button from "./Button";\n\ndescribe("Button Component", () => {\n  it("Renderiza com texto", () => {\n    mount(<Button>Clique Aqui</Button>);\n    cy.contains("Clique Aqui").should("be.visible");\n  });\n\n  it("Chama onClick quando clicado", () => {\n    const onClick = cy.stub().as("clickHandler");\n    mount(<Button onClick={onClick}>Botão</Button>);\n    \n    cy.get("button").click();\n    cy.get("@clickHandler").should("have.been.calledOnce");\n  });\n});',
       },
       {
         id: 'cypress-6',
         title: 'Fixtures e Dados de Teste',
         description: 'Usar arquivos de fixture para dados de teste',
         language: 'javascript',
-        code: '// cypress/fixtures/users.json\n{\n  "admin": {\n    "email": "admin@exemplo.com",\n    "password": "admin123"\n  },\n  "user": {\n    "email": "user@exemplo.com",\n    "password": "user123"\n  }\n}\n\n// No teste\nbeforeEach(() => {\n  cy.fixture("users").then((users) => {\n    this.users = users;\n  });\n});\n\nit("Login como admin", () => {\n  const { email, password } = this.users.admin;\n  cy.login(email, password);\n  // ...\n});'
+        code: '// cypress/fixtures/users.json\n{\n  "admin": {\n    "email": "admin@exemplo.com",\n    "password": "admin123"\n  },\n  "user": {\n    "email": "user@exemplo.com",\n    "password": "user123"\n  }\n}\n\n// No teste\nbeforeEach(() => {\n  cy.fixture("users").then((users) => {\n    this.users = users;\n  });\n});\n\nit("Login como admin", () => {\n  const { email, password } = this.users.admin;\n  cy.login(email, password);\n  // ...\n});',
       },
       {
         id: 'cypress-7',
         title: 'Comandos Customizados',
         description: 'Criar e usar comandos personalizados',
         language: 'javascript',
-        code: '// cypress/support/commands.js\nCypress.Commands.add("login", (email, password) => {\n  cy.session([email, password], () => {\n    cy.visit("/login");\n    cy.get("#email").type(email);\n    cy.get("#password").type(`${password}{enter}`);\n    cy.url().should("include", "/dashboard");\n  });\n});\n\n// No teste\ncy.login("usuario@exemplo.com", "senha123");\ncy.visit("/dashboard");'
+        code: '// cypress/support/commands.js\nCypress.Commands.add("login", (email, password) => {\n  cy.session([email, password], () => {\n    cy.visit("/login");\n    cy.get("#email").type(email);\n    cy.get("#password").type(`${password}{enter}`);\n    cy.url().should("include", "/dashboard");\n  });\n});\n\n// No teste\ncy.login("usuario@exemplo.com", "senha123");\ncy.visit("/dashboard");',
       },
       {
         id: 'cypress-8',
         title: 'Teste de Acessibilidade',
         description: 'Verificar acessibilidade com axe-core',
         language: 'javascript',
-        code: '// cypress/support/commands.js\nimport "cypress-axe";\n\n// No teste\nit("Deve passar nos testes de acessibilidade", () => {\n  cy.visit("/");\n  cy.injectAxe();\n  cy.checkA11y(null, {\n    rules: {\n      "color-contrast": { enabled: false } // Desativar regra específica\n    }\n  });\n});'
+        code: '// cypress/support/commands.js\nimport "cypress-axe";\n\n// No teste\nit("Deve passar nos testes de acessibilidade", () => {\n  cy.visit("/");\n  cy.injectAxe();\n  cy.checkA11y(null, {\n    rules: {\n      "color-contrast": { enabled: false } // Desativar regra específica\n    }\n  });\n});',
       },
       {
         id: 'cypress-9',
         title: 'Teste de Visual',
         description: 'Comparação visual com Percy ou Applitools',
         language: 'javascript',
-        code: '// Com Percy instalado (npm i @percy/cypress)\ndescribe("Teste Visual", () => {\n  it("Compara screenshot da página inicial", () => {\n    cy.visit("/");\n    cy.percySnapshot("Página Inicial");\n  });\n\n  it("Compara screenshot do mobile", () => {\n    cy.viewport("iphone-8");\n    cy.visit("/");\n    cy.percySnapshot("Página Inicial - Mobile");\n  });\n});'
+        code: '// Com Percy instalado (npm i @percy/cypress)\ndescribe("Teste Visual", () => {\n  it("Compara screenshot da página inicial", () => {\n    cy.visit("/");\n    cy.percySnapshot("Página Inicial");\n  });\n\n  it("Compara screenshot do mobile", () => {\n    cy.viewport("iphone-8");\n    cy.visit("/");\n    cy.percySnapshot("Página Inicial - Mobile");\n  });\n});',
       },
       {
         id: 'cypress-10',
         title: 'Teste de Upload',
         description: 'Testar upload de arquivos',
         language: 'javascript',
-        code: 'describe("Upload de Arquivo", () => {\n  it("Deve fazer upload com sucesso", () => {\n    cy.visit("/upload");\n    \n    cy.fixture("example.pdf", "binary")\n      .then((file) => Cypress.Blob.binaryStringToBlob(file))\n      .then((blob) => {\n        const file = new File([blob], "example.pdf", { type: "application/pdf" });\n        cy.get("input[type=file]").attachFile({\n          fileContent: file,\n          fileName: "example.pdf",\n          mimeType: "application/pdf"\n        });\n      });\n    \n    cy.get(".upload-status").should("contain", "Upload completo");\n  });\n});'
+        code: 'describe("Upload de Arquivo", () => {\n  it("Deve fazer upload com sucesso", () => {\n    cy.visit("/upload");\n    \n    cy.fixture("example.pdf", "binary")\n      .then((file) => Cypress.Blob.binaryStringToBlob(file))\n      .then((blob) => {\n        const file = new File([blob], "example.pdf", { type: "application/pdf" });\n        cy.get("input[type=file]").attachFile({\n          fileContent: file,\n          fileName: "example.pdf",\n          mimeType: "application/pdf"\n        });\n      });\n    \n    cy.get(".upload-status").should("contain", "Upload completo");\n  });\n});',
       },
       {
         id: 'cypress-11',
         title: 'Teste de Performance',
         description: 'Medir métricas de performance',
         language: 'javascript',
-        code: 'describe("Performance", () => {\n  it("Deve carregar a página em menos de 2s", () => {\n    cy.visit("/", {\n      onBeforeLoad: (win) => {\n        win.performance.mark("start-loading");\n      },\n      onLoad: (win) => {\n        win.performance.mark("end-loading");\n      }\n    });\n    \n    cy.window().then((win) => {\n      win.performance.measure("pageLoad", "start-loading", "end-loading");\n      const measure = win.performance.getEntriesByName("pageLoad")[0];\n      expect(measure.duration).to.be.lessThan(2000);\n    });\n  });\n});'
+        code: 'describe("Performance", () => {\n  it("Deve carregar a página em menos de 2s", () => {\n    cy.visit("/", {\n      onBeforeLoad: (win) => {\n        win.performance.mark("start-loading");\n      },\n      onLoad: (win) => {\n        win.performance.mark("end-loading");\n      }\n    });\n    \n    cy.window().then((win) => {\n      win.performance.measure("pageLoad", "start-loading", "end-loading");\n      const measure = win.performance.getEntriesByName("pageLoad")[0];\n      expect(measure.duration).to.be.lessThan(2000);\n    });\n  });\n});',
       },
       {
         id: 'cypress-12',
         title: 'Teste em Múltiplos Viewports',
         description: 'Testar responsividade em diferentes tamanhos de tela',
         language: 'javascript',
-        code: 'const viewports = [\n  "macbook-16",\n  "ipad-2",\n  "iphone-xr",\n  [1920, 1080], // Custom size\n];\n\nviewports.forEach((viewport) => {\n  describe(`Teste no viewport ${viewport}`, () => {\n    beforeEach(() => {\n      if (Cypress._.isArray(viewport)) {\n        cy.viewport(viewport[0], viewport[1]);\n      } else {\n        cy.viewport(viewport);\n      }\n      cy.visit("/");\n    });\n\n    it("Deve exibir o menu corretamente", () => {\n      cy.get(".navbar").should("be.visible");\n      \n      if (["iphone-xr", "ipad-2"].includes(viewport)) {\n        cy.get(".menu-button").click();\n        cy.get(".mobile-menu").should("be.visible");\n      }\n    });\n  });\n});'
-      }
-    ]
+        code: 'const viewports = [\n  "macbook-16",\n  "ipad-2",\n  "iphone-xr",\n  [1920, 1080], // Custom size\n];\n\nviewports.forEach((viewport) => {\n  describe(`Teste no viewport ${viewport}`, () => {\n    beforeEach(() => {\n      if (Cypress._.isArray(viewport)) {\n        cy.viewport(viewport[0], viewport[1]);\n      } else {\n        cy.viewport(viewport);\n      }\n      cy.visit("/");\n    });\n\n    it("Deve exibir o menu corretamente", () => {\n      cy.get(".navbar").should("be.visible");\n      \n      if (["iphone-xr", "ipad-2"].includes(viewport)) {\n        cy.get(".menu-button").click();\n        cy.get(".mobile-menu").should("be.visible");\n      }\n    });\n  });\n});',
+      },
+    ],
   },
   {
     id: 'nextjs',
