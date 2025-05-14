@@ -351,6 +351,13 @@ export const categories: Category[] = [
         language: 'python',
         code: '# Decorador simples\ndef meu_decorador(funcao):\n    def wrapper():\n        print("Antes da função")\n        funcao()\n        print("Depois da função")\n    return wrapper\n\n@meu_decorador\ndef dizer_ola():\n    print("Olá!")\n\ndizer_ola()\n\n# Decorador com argumentos\ndef decorador_com_args(funcao):\n    def wrapper(*args, **kwargs):\n        print(f"Chamando {funcao.__name__} com args: {args}, kwargs: {kwargs}")\n        return funcao(*args, **kwargs)\n    return wrapper\n\n@decorador_com_args\n def somar(a, b):\n    return a + b\n\nprint(somar(3, 5))',
       },
+      {
+        id: 'python-21',
+        title: 'Ordem de precedência',
+        description: 'Detalhes da Precedência:',
+        language: 'python',
+        code: 'Em Python, a ordem de precedência (ou prioridade) dos operadores determina a sequência em que as operações são realizadas em uma expressão.\n A regra PEMDAS (Parênteses, Expoentes, Multiplicação e Divisão, Adição e Subtração) ajuda a lembrar essa ordem.\n Operadores dentro de parênteses são avaliados primeiro, seguido de exponenciação, multiplicação/divisão, e por fim, adição/subtração.\n\n Detalhes da Precedência:\n1. Parênteses: ()\nOperadores dentro de parênteses têm a maior precedência e são avaliados primeiro.\n2. Expoentes: **\nO operador de exponenciação (**) tem a próxima maior precedência.\n3. Multiplicação, Divisão, Módulo e Divisão inteira: *, /, %, //\nEstes operadores (*, /, %, //) têm a mesma precedência e são avaliados da esquerda para a direita. \n4. Adição e Subtração: + e -\nEstes operadores (+, -) têm a precedência mais baixa e são avaliados da esquerda para a direita.\n ',
+      },
     ],
   },
   {
